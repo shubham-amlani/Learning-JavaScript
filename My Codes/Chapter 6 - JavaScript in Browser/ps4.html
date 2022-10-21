@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BG Changer</title>
+</head>
+<body>
+</body>
+<script>
+alert("1. Red\n2. Yellow\n 3. Blue");
+let choice = prompt("Enter your choice");
+choice = Number.parseInt(choice);
+if(choice==1){
+    document.body.style.background = "red";
+}
+else if(choice==2){
+    document.body.style.background = "yellow";
+}
+else if(choice==3){
+    document.body.style.background = "blue";
+}
+else{
+    alert("Please reload and enter a valid choice !!!");
+}
+</script>
+</html>

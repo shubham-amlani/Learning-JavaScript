@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>More array methods</title>
+</head>
+<body>
+</body>
+<script>
+let num = [1, 2, 3, 4, 5, 6];
+let arr = [7, 8, 9, 10];
+console.log(num);
+//delete, Note:- it is not an meathod or function or property, it is an operator.
+delete num[0]; //will delete the element present at 0th index.
+//Whenever we use delete function it will make empty that index of array, so, due to that reason it will not affect the length of an array, so, we conclude that delete operator deletes the elemend and does not affect the length of an array.
+console.log(num);
+
+//concat:- it is used to concatenate two strings.
+//Note:- It will not change existing original array, it will return a new array.
+//It can concatenate more than 2 arrays too.
+console.log(num.concat(arr));
+console.log(num);
+//Sort:-will sort numbers in an array alphabetically and not numerically and it changes original array.
+console.log(arr.sort());
+//Then what should we do to sort it numerically, we make use of compare function which is not a library function, we need to make it and use it with sort() function. We can do this like this:
+let compare=(a, b)=>{
+    return a-b;
+    //if we want to sort the numbers according to decending order we will return b-a;
+}
+console.log(arr.sort(compare));
+//reverse: it will reverse the order of original array.
+console.log(arr.reverse());
+console.log(arr.reverse());//will again reverse the array.
+//splice: it is used to replace certain elememts of an array and add new ones, we can add without removing any of the elements also, syntax is as follows:
+//It returns deleted items.
+//arrayname.splice(indexToStartFrom, noOfElementsToBeRemoved, element1, element2...elementN); Eg:
+arr.splice(0, 0, 1, 2, 3, 4, 5, 6);
+//Meaning of above line: Start from index 0, remove 0 elements and add the elements 1, 2, 3, 4, 5, 6.
+console.log(arr);
+
+//slice:It is same as slice function used with strings.
+//Note:-It does not modify the original array, it returns a new array.
+console.log(arr.slice(3));//will return whole array starting from index 3.
+console.log(arr.slice(3, 6));//will return array elements starting from index 3 and till index 6 (index 6 is not included). 
+</script>
+</html>

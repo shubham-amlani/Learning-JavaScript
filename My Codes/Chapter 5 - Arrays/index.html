@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intro to Arrays</title>
+</head>
+<body>
+</body>
+<script>
+//This is a simple way to make an array in JavaScript.
+//Array is a container which is used to store multiple elements in a program, these elements can be of same data-type or of different ones, any primitive or non-primitive data-type can be stored in an array
+let marks = [100, 99, 94, 83, 74, 36, "string", false, null];
+//We can access elements of an array like this.
+console.log(marks);
+console.log(marks[0]);
+console.log(marks[1]);
+console.log(marks[2]);
+console.log(marks[3]);
+console.log(marks[4]);
+console.log(marks[5]);
+console.log(marks[6]);
+console.log(marks[7]);
+console.log(marks[8]);
+//If we try to access element which is not present in an array it will return undefined, any primitive or non-primitive data-type can be stored in arrays.
+//But note that any undefined value can be later changed and that will change the element of the array For Eg: 
+marks[9]='shubham'
+console.log(marks[9]);
+//This will now no more print undefined as value is assigned to it, again it can be of any valid data-type of JS.
+//We make good use of .length property to know the length of an array.
+console.log("The length of array marks is "+ marks.length);
+//We can also change the values in an array, so, arrays are mutable and they can be changed
+marks[0]=99;
+console.log(marks[0]);
+</script>
+</html>

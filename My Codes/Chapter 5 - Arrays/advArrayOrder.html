@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced array ordering methods</title>
+</head>
+<body>
+<h3>Map, filter and reduce in JavaScript</h3>
+</body>
+<script>
+let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// forEach takes 3 arguments, 1st is for value of each element, 2nd is for index of each element, 3rd is for array on which operations are being performed.
+arr.forEach(
+(value, index, array)=>{
+    console.log(value, index, array);
+}
+)
+//Map, filter and reduce.
+//map: it is same as forEach but instead of performing operations on that particular array it will return a new array.
+arr.map(
+(value, index, array)=>{
+    console.log(value, index, array);
+}
+)
+//filter: This function take in a function and it that function returns true it will be stored in a new array and if it returns false then it will not be stored in new array (in our example).
+//Eg:
+let newarr = arr.filter(
+(value)=>{
+    return value<10;
+    //it will return true if value is less than 10, else it will return false, this function reduces tedious process of writing functions and conditions to do this thing simply done with filter function.
+}
+)
+//if we simple define filter function then: filters an array that passes an test. It creates a new array (do not modify existing array)
+console.log(newarr);//will print values less than 10.
+//Reduce method:this meathod performs operatins on next element of the array with the returned value by previous run of the function in reduce function, Eg:
+const sumFunc=(a, b)=>{
+    return a + b;
+}
+let newarr2 = arr.reduce(sumFunc);
+console.log(newarr2);
+//This function does not modify the original array, it returns a new one.
+console.log(arr);
+</script>
+</html>

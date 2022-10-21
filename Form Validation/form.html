@@ -1,0 +1,103 @@
+<html>
+<head>
+    <title>Registration Form</title>
+<style>
+body{
+    background-color: #a6c9ff;
+}
+.container{
+    height: 600px;
+    width: 500px;
+    border: none;
+    background-color: white;
+    border-radius: 12px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.heading{
+    text-align: center;
+    font-family: sans-serif;
+}
+.name{
+    height: 25px;
+    margin-top: 20px;
+}
+.namelabel{
+    margin-top: 20px;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+.email{
+    height: 25px;
+    margin-top: 20px;
+}
+.emaillabel{
+    margin-top: 20px;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+.phone{
+    height: 25px;
+    margin-top: 20px;
+}
+.phonelabel{
+    margin-top: 20px;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+.button{
+    background-color: #005fed;
+    color: white;
+    margin-top: 15px;
+    height: 40px;
+    width: 80px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.button:hover{
+    background-color: #002762;
+}
+</style>
+</head>
+<body>
+<h1 class="heading">Registration Form</h1>
+<div class="container">
+<form action="form.html" id="form" name="form">
+<label for="name" class="namelabel">Name:&nbsp;</label>
+<input type="text" name="name" id="name" placeholder="Enter your name here" class="name">
+<br>
+<label for="email" class="emaillabel">E-Mail:&nbsp;</label>
+<input type="text" name="email" id="email" class="email" placeholder="Enter your email address">
+<label for="phone" class="phonelabel">Phone:&nbsp;</label>
+<input type="text" name="phone" id="phone" class="phone" placeholder="Enter your Phone number">
+<input type="submit" value="Submit" class="button">
+</form>
+</div>    
+</body>
+<script>
+document.getElementById("form").onsubmit = 
+function validateForm(){
+    x = document.form.name.value;
+    y = document.form.email.value;
+    z = document.form.phone.value;
+    if(x==null || x==""){
+        alert("Please enter name");
+        document.form.name.focus();
+        return false;
+    }
+    if(y==null || y==""){
+        alert("Please enter email");
+        document.form.email.focus();
+        return false;
+    }
+    if(z==null || z=="" || isNaN(z) || z.length<10 || z.length>10){
+        alert("Please enter a valid 10 digit number");
+        document.form.phone.focus();
+        return false;
+    }
+}
+</script>
+</html>

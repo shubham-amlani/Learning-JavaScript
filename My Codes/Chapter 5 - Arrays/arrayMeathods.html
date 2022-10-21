@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Meathods</title>
+</head>
+<body>
+<h4>These mentioned are not all meathods of an array in JS, most used meathods are mentioned here</h4>
+</body>
+<script>
+let num = [1, 2, 3, 4, 5, 6];
+//if we directly use typeof function on any array then it will return object and not array, <---Note this.
+let b = num.toString(); //b is now a string in which num array is stored after converting it to string.
+console.log(b);
+console.log(typeof(b));//will print string.
+//Join method: it joins all the elements of an array by making use of a separetor.
+console.log(num.join(" "));//we will put the separator inside double inv commas.
+
+//pop method: it pops out the last element of an array, and instead of returning a new array it will literally update the original array, so For eg: if just print it once or store it in another variable then also it will update the original array popping out the last element.
+console.log(num.pop());// last element is now popped out of array and it will return the popped element.
+console.log(num);
+
+//push method:It pushes a new element in an array and will place the element at last of the array.
+console.log(num.push(6));//will return new array length.
+console.log(num);
+//shift method: It will move out the first element and will return the shifted element.
+console.log(num.shift());
+//unshift meathod: It will move in the element to beginning of an array and will return length of new array.
+console.log(num.unshift(1));
+</script>
+</html>

@@ -1,0 +1,64 @@
+<html>
+<head>
+<title>Computer Practical Q1</title>
+<style>
+.box{
+display: flex;
+justify-content: center;
+border: 2px solid red;
+height: 300px;
+width: 400px;
+margin: auto;
+margin-top: 20px;
+}
+.heading{
+text-align: center;
+}
+.name{
+margin-top: 15px;
+}
+.email{
+margin-top: 15px;
+}
+.phone{
+margin-top: 15px;
+}
+</style>
+</head>
+<body>
+<h1 class="heading">Please enter details below</h1>
+<div class="box">
+<form name="form" id="form" action="form.html">
+<b>Name: &nbsp;&nbsp;&nbsp;</b><input type="text" class="name" id="name" placeholder="Enter your name">
+<br>
+<b>Email: &nbsp;&nbsp;&nbsp;</b><input type="text" class="email" id="email" placeholder="Enter your email address">
+<br>
+<b>Phone: &nbsp;&nbsp;&nbsp;</b><input type="text" class="phone" id="phone" placeholder="Enter Phone number">
+<br>
+<input type="submit" value="Submit">
+</div>
+</body>
+<script>
+document.getElementById("form").onsubmit = 
+function validateForm(){
+    var x = document.form.name.value;
+    var y = document.form.email.value;
+    var z = document.form.phone.value;
+    if(x==null || x==""){
+	alert("Please enter name");
+	document.form.name.focus();
+	return false;
+    }
+    if(y==null || y==""){
+	alert("Please enter email address");
+	document.form.email.focus();
+	return false;
+    }
+    if(z==null || z=="" || isNaN(z) || z.length<10 || z.length>10){
+	alert("Please enter valid Phone Number");
+	document.form.phone.focus();
+	return false;
+    }
+}
+</script>
+</html>

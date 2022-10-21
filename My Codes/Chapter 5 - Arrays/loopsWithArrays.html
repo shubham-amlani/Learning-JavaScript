@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loops with arrays</title>
+</head>
+<body>
+</body>
+<script>
+let num = [1, 2, 3, 453, 45, 56];
+let str = 'This is a string';
+//Array.from -> converts srting into an array.
+let arr = Array.from(str); //converts an string in to array.
+//forEach loop
+arr.forEach(
+    (element)=>{
+        console.log(element);
+    }
+)
+num.forEach((abc)=>{
+    console.log(abc*abc);
+})
+//for...of loops
+//It is used to access elements of an array
+for(let i of num){
+    console.log(i);
+}
+//for...in loops
+//It is used to access indexex of an array
+for(let j in num){
+    console.log(j);
+}
+</script>
+</html>
