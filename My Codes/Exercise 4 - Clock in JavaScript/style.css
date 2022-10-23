@@ -3,7 +3,8 @@
     padding: 0;
 }
 body{
-    background-color: #070042;
+    background-image: url('https://wallpaperaccess.com/full/430453.jpg');
+    background-size: cover;
 }
 
 .heading{
@@ -11,7 +12,7 @@ body{
     font-weight: bold;
     text-align: center;
     font-size: 45px;
-    color: #ff00b3;
+    color: #0077ff;
     margin-top: 40px;
 }
 
@@ -33,9 +34,9 @@ span{
 
 .time{
     border: none;
-    background-color: rgb(158, 152, 255);
+    background-color: rgb(2, 0, 39);
     border-radius: 12px;
-    opacity: 0.2;
+    opacity: 0.8;
     margin: 50px auto;
     height: 200px;
     width: 600px;
@@ -46,6 +47,8 @@ span{
 
 .time_lbls{
     font-size: 30px;
+    color: #0077ff;
+    opacity: 0.8;
 }
 
 .time_badge{
@@ -54,4 +57,17 @@ span{
     top: 339px;
     left: 568px;
     font-family: sans-serif;
+    color: #0077ff;
+    opacity: 0.8;
+}
+footer{
+    background-color: #0077ff;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    font-family: 'Raleway', sans-serif;
+    font-size: 20px;
+    align-items: center;   
+    position: relative;
+    bottom: -106px;
 }
