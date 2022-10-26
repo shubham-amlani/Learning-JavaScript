@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice set 3</title>
+</head>
+<body>
+</body>
+<script>
+const main1=async()=>{
+return new Promise((resolve, reject)=>{
+    setTimeout(()=>{
+        reject(new Error("rejected"));
+    }, 3000);
+});
+}
+const main2=async()=>{
+    try{
+    let var_main1 = await main1();
+    console.log(var_main1);
+    }
+    catch(err){
+        console.log(err);
+    }
+}
+main2();
+</script>
+</html>

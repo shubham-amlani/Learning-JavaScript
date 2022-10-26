@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: black;
+}
+
+.header{
+    height: 100px;
+    width: 750px;
+    border: 2px solid white;
+    margin: 45px auto;
+    display: flex;
+    align-items: center;
+}
+
+.heading{
+    color: #0ffc03;
+    font-family: 'Source Code Pro', monospace;
+    font-size: 40px;
+    padding: 25px;
+}
+
+.logo{
+    height: 80px;
+}
+
+.console_line{
+    color: #0345fc;
+    font-family: 'Source Code Pro', monospace;
+    font-weight: bold;
+    font-size: 30px;
+    padding: 20px;
+}
+p{
+    color: #0ffc03;
+    font-family: 'Source Code Pro', monospace;
+    font-size: 25px;
+    padding: 20px;
+}

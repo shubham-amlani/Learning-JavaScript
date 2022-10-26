@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Try Catch in JavaScript</title>
+</head>
+<body>
+</body>
+<script>
+
+try{
+throw new ReferenceError("Harry is not good");
+}
+catch(error){
+    console.log(error.name);
+    console.log(error.message);
+    console.log(error.stack);
+}
+
+</script>
+</html>
