@@ -41,9 +41,26 @@ for (let variable of "Shubham") {
 }
 
 //while loops in Javascript
-let whilevar = 1;
-while(true){
-    console.log(whilevar);
-    whilevar += 1;
-}
+
+
+// let whilevar = 1;
+// while(true){
+//     console.log(whilevar);
+//     whilevar += 1;
+// }
+
+
 //the above while loop will never end as condition is always true and never ending while loops can crash the runtime.
+
+//do while loops:- these loops are same as other loops and does the same work of automating the task but the difference is that it will be executed at least once.
+//For eg:
+let dowhilevar =  1;
+do{
+    console.log(dowhilevar);
+    dowhilevar += 1;
+}while(dowhilevar<=1000);
+
+//this simply means that print the dowhilevar once and then check that weather it is less than or equal to 1000 and then again execute the code if condition is satisfied and do not execute if condition is not satisfied.
+
+//End of loops.
+//QWERTY.S
