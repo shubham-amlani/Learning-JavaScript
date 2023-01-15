@@ -49,3 +49,29 @@ console.log(num);
 //      name: "shubham",
 //      marks: "93"
 //   }
+
+//Important note:- var is global scoped so if we define a variable with var then it will be valid and behave same in whole code but if we define a variable with let in any block then it will be block scoped and will be valid until that block only for eg:
+
+//This is an empty block
+{
+    let var1 = 35;
+    console.log(var1);
+    //this is a valid variable only until this block
+}
+//but if i try to use a outside that block then 
+
+// console.log(var1);
+
+//it will throw an error saying that variable is not defined because existance of that variable for the program ends along with end of the block in which it is defined.
+
+//but same is not the case with var.
+//for eg:
+{
+    var var2 =9384;
+    console.log(var2);
+}
+//when i try to access or to use it outside the block
+console.log(var2);
+//then it will work fine and does not throw an error
+
+//Therefore we can say that var is globally scoped and let is block scoped.
