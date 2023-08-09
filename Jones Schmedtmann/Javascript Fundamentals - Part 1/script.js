@@ -194,3 +194,71 @@
 // n = n - 1;
 // console.log(typeof n);
 // console.log(n);
+
+//Lecture: Truthy and falsy values
+//5 falsy values: 0, '', undefined, null, NaN
+//they're not false by defalut but will be false if converted to boolean
+// console.log(Boolean(0));
+// console.log(Boolean(undefined));
+// console.log(Boolean('Shubham'));
+// console.log(Boolean({})); //object
+// console.log(Boolean(NaN));
+// console.log(Boolean('')) //null
+
+// const money = 100;
+// if(money){
+//     console.log("Don't spend it all ;)");
+// } else{
+//     console.log("You should get a job!");
+// }
+// //use case
+// let height = 0;
+// if(height){
+//     console.log("Yay! Height is defined");
+// } else{
+//     console.log("Height is UNDEFINED");
+// }
+
+// Lecture:Equality Operators: == vs ===
+// const age = '18';
+// if(age === 18) console.log("You just vecame an adult :D (strict)");
+
+// if(age == 18) console.log('You just became an adult :D (loose)')
+
+// const favourite = Number(prompt("What's your favourite number?"));
+// console.log(favourite);
+// console.log(typeof favourite);
+// if(favourite === 456){
+//     console.log('Cool! 456 is an amazing number!');
+// }
+// else if(favourite == 23){
+//     console.log("Cool! 23 is also a cool number");
+// }
+// else{
+//     console.log("number is not 456 or 23");
+// }
+
+// if(favourite !== 23) console.log('Why not 23?');
+
+//Lecture: Boolean Logic
+// const hasDriversLicense = true;
+// const hasGoodVision = true;
+
+// console.log(hasDriversLicense && hasGoodVision);
+// console.log(hasDriversLicense || hasGoodVision);
+// console.log(!hasDriversLicense);
+
+// // const shouldDrive = hasDriversLicense && hasGoodVision;
+// // if(shouldDrive){
+// //     console.log("Is able to drive!");
+// // } else{
+// //     console.log('Someone else should drive...')
+// // }
+
+// const isTired = false;
+// console.log(hasDriversLicense && hasGoodVision && isTired);
+// if(hasDriversLicense && hasGoodVision && !isTired){
+//     console.log('Is able to drive');
+// } else{
+//     console.log('Someone else should drive')
+// }

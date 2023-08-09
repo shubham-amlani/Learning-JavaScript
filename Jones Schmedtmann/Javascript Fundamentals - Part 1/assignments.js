@@ -21,7 +21,7 @@ let population = 1400;
 // console.log(typeof isIsland);
 // console.log(typeof population);
 // console.log(typeof country);
-// const language = 'Hindi';
+const language = 'Hindi';
 // console.log(typeof language);
 
 
@@ -48,3 +48,29 @@ let population = 1400;
 // } else{
 //     console.log(`${country}'s population is ${population} million below average`);
 // }
+
+//Lecture: Type Conversion and Coercion
+//4
+//617
+//23
+//false
+//1143
+// console.log('9' - '5');
+// console.log('19' - '13' + '17');
+// console.log('19' - '13' + 17);
+// console.log('123' < 57);
+// console.log(5 + 6 + '4' + 9 - 4 - 2);
+
+//result: all guesses were correct
+//remarks: excellent
+
+//Lecture: Equality operators: == vs ===
+// const numNeighbours = Number(prompt('How many neighbour countries does your country have?'));
+// if(numNeighbours === 1) console.log('Only 1 border!');
+// else if(numNeighbours > 1) console.log('More than 1 border!');
+// else console.log("No borders");
+
+//Lecture: Logical Operators
+const isIsland = false;
+// if(language === 'English' && population < 50 && !isIsland) console.log(`You should live in ${country}`);
+// else console.log(`${country} does not meet your criteria`); 
