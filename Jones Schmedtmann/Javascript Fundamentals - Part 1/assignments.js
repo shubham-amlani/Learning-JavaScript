@@ -21,7 +21,7 @@ let population = 1400;
 // console.log(typeof isIsland);
 // console.log(typeof population);
 // console.log(typeof country);
-const language = 'Hindi';
+const language = 'hindi';
 // console.log(typeof language);
 
 
@@ -74,3 +74,37 @@ const language = 'Hindi';
 const isIsland = false;
 // if(language === 'English' && population < 50 && !isIsland) console.log(`You should live in ${country}`);
 // else console.log(`${country} does not meet your criteria`); 
+
+//Lecture: The switch Statement
+
+// switch(language) {
+//     case 'chinese':
+//     case 'mandarin':
+//         console.log('MOST number of native speakers!');
+//         break;
+//     case 'spanish':
+//         console.log('2nd place in number of native speakers');
+//         break;
+//     case 'english':
+//         console.log('3rd place');
+//         break;
+//     case 'hindi':
+//         console.log('Number 4');
+//         break;
+//     case 'arabic':
+//         console.log('5th most spoken language');
+//         break;
+//     default:
+//         console.log('Great language too :D');
+    
+// }
+
+
+//Lecture: The conditional (Ternary) Operator
+// console.log(`${country}'s population is ${population>33 ? 'above' : 'below'} average`);
+
+
+
+
+
+//Congratulations on completing Javascript Fundamentals - Part 1
