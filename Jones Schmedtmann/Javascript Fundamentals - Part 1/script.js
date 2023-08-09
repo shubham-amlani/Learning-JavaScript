@@ -123,22 +123,74 @@
 // //It can be found at https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_precedence
 
 
-//Lecture: strings and template literals
-const firstName = 'Shubham';
-const job = 'student';
-const birthYear = 2005;
-const year = 2023;
-const shubham = "I'm "+ firstName + ", a " + (year - birthYear) + ' years old ' + job + '!';
-//template literals allows us to write strings in a more normal way rather than adding numerous + ops and ''""
-const shubhamNew = `I'm ${firstName} a ${year - birthYear} years old ${job}!`;
-//we can use backticks which are located below esc button
-//we can also use backticks for regular strings too
-console.log(shubhamNew);
+// // Lecture: strings and template literals
+// const firstName = 'Shubham';
+// const job = 'student';
+// const birthYear = 2005;
+// const year = 2023;
+// const shubham = "I'm "+ firstName + ", a " + (year - birthYear) + ' years old ' + job + '!';
+// //template literals allows us to write strings in a more normal way rather than adding numerous + ops and ''""
+// const shubhamNew = `I'm ${firstName} a ${year - birthYear} years old ${job}!`;
+// //we can use backticks which are located below esc button
+// //we can also use backticks for regular strings too
+// console.log(shubhamNew);
 
-console.log('String with \n\
-multiple \n\
-lines');
+// console.log('String with \n\
+// multiple \n\
+// lines');
 
-console.log(`String
-multiple
-lines`)
+// console.log(`String
+// multiple
+// lines`)
+//no need for \n\ we can directly use backticks `` and write multiple linex directly
+
+
+
+//Lecture: Taking Decisions: If/Else statements
+// const age = 15;
+// const isOldEnough = age >= 18;
+
+// if(isOldEnough) {
+//     console.log('Darshil can start driving license.');
+// } else{
+//     const yearsLeft = 18 - age;
+//     console.log('Darshil cannot start driving license');
+//     console.log(`There are still ${yearsLeft} years left :)`)
+// }
+// //else block is optional, this full structure is called if-else control structure
+
+// const birthYear = ``;
+// let century;
+// if(birthYear <= 2000){
+//     century = 20;
+// } else{
+//     century = 21;
+// }
+// console.log(century);
+//we assume this to work only when person is born in 20 / 21st century
+
+//Lecture: Type conversion and coercion
+
+//type conversion
+// const inputYear = '2005';
+// console.log(Number(inputYear), inputYear);
+// //original value is not converted
+// console.log(inputYear + 18);
+// console.log(Number(inputYear) + 18);
+// console.log(Number('Shubham'));//will return NaN (Not a Number)
+// console.log(typeof NaN);
+
+// console.log(String(23), 23);
+
+// //type coercion
+// console.log('I am ' + 17 + ' years old');
+// console.log('I am ' + '17' + ' years old');
+
+// console.log('23' - '10' - 3);
+// console.log('17' / '2');
+
+// let n = '1' + 1;
+// console.log(typeof n);
+// n = n - 1;
+// console.log(typeof n);
+// console.log(n);

@@ -2,10 +2,10 @@
 
 // //q1 Declare variables called 'country', 'continent' and 'population' and assign their values according to your own country(population in millions)
 // // let country = 'India';
-// const country = 'India';
+const country = 'India';
 // // let continent = 'Asia';
-// const continent = 'Asia';
-// let population = 1400;
+const continent = 'Asia';
+let population = 1400;
 // //q2 log their values to the console
 // console.log(country);
 // console.log(continent);
@@ -39,4 +39,12 @@
 // console.log(halfPopulation);
 // const description = country+" is in "+continent+" and its "+population+ " million population speak "+ language;
 // console.log(description);
+// const descriptionNew = `${country} is in ${continent} and its ${population} million population speak ${language}`;
+// console.log(descriptionNew);
 
+//Lecture: Taking Decisions: if/else Statements
+// if(population > 33){
+//     console.log(`${country}'s population is above average`);
+// } else{
+//     console.log(`${country}'s population is ${population} million below average`);
+// }
