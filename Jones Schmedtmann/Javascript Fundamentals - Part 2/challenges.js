@@ -55,25 +55,62 @@
 
 
 //Challenge 3
-const mark = {
-    firstName: 'Mark',
-    lastName: 'Miller',
-    mass: 78,
-    height: 1.69,
-    calcBMI: function() {
-        return this.mass/(this.height ** 2);
-    }
-}
+// const mark = {
+//     firstName: 'Mark',
+//     lastName: 'Miller',
+//     mass: 78,
+//     height: 1.69,
+//     calcBMI: function() {
+//         return this.mass/(this.height ** 2);
+//     }
+// }
 
-const john = {
-    firstName: 'John',
-    lastName: 'Smith',
-    mass: 92,
-    height: 1.95,
-    calcBMI: function() {
-        return this.mass/(this.height ** 2);
-    }
-}
+// const john = {
+//     firstName: 'John',
+//     lastName: 'Smith',
+//     mass: 92,
+//     height: 1.95,
+//     calcBMI: function() {
+//         return this.mass/(this.height ** 2);
+//     }
+// }
 
-console.log(`${mark.firstName}'s BMI(${mark.calcBMI()}) is higher than ${john.firstName}'s (${john.calcBMI()})`);
-//Status: Under Verification
+// console.log(`${mark.firstName}'s BMI(${mark.calcBMI()}) is higher than ${john.firstName}'s (${john.calcBMI()})`);
+//Status: Completed
+//remarks: excellent
+
+
+//Challenge 4
+// const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+// const tips = [];
+// const totals = [];
+
+// const calcTip = (bill) => {
+//     return bill >= 50 && bill <= 300 ? bill*0.15 : bill*0.2;
+// }
+
+
+// for (let i=0;i<bills.length;i++){
+//     tips.push(calcTip(bills[i]));
+//     totals.push(tips[i]+bills[i]);
+// }
+
+// console.log(bills);
+// console.log(tips);
+// console.log(totals);
+
+// //Bonus
+// const calcAverage = (arr) => {
+//     let sum = 0;
+//     for(let i = 0; i  <arr.length; i++) {
+//         sum += arr[i];
+//     }
+//     return sum/arr.length;
+// }
+
+// console.log(calcAverage(totals));
+
+//Status: Completed
+//Remarks: excellent
+
+//Congrats on completing JavaScript Fundamentals - Part 2

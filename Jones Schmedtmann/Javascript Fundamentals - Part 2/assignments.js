@@ -18,9 +18,9 @@ const capitalCity = 'Delhi';
 
 
 //Lecture: Function declaration vs expressions
-function percentageOfWorld1(population){
-    return (population/7900)*100;
-}
+// function percentageOfWorld1(population){
+//     return (population/7900)*100;
+// }
 
 // const percentageOfWorld2 = function (population){
 //     return (population/7900)*100;
@@ -126,4 +126,67 @@ function percentageOfWorld1(population){
 
 // console.log(myCountry.describe());
 // console.log(myCountry.checkIsIsland());
+
+//Lecture: Iteration: The for loop
+// for(let i=1;i<=50;i++){
+//     console.log(`Voter number ${i} is currently voting`);
+// }
+
+
+//Lecture: Looping Arrays, Breaking and Continuing
+
+// function percentageOfWorld1(population){
+//     return (population/7900)*100;
+// }
+
+// const populationIndia = 1400;
+// const populationChina = 1441;
+// const populationCanada = 40;
+// const populationNepal = 30;
+
+// const populations = [populationIndia, populationChina, populationCanada, populationNepal];
+
+// const percentages2 = [];
+
+// for(let i=0;i<populations.length;i++) {
+//     percentages2.push(percentageOfWorld1(populations[i]));
+// }
+
+// console.log(percentages2);
+
+
+//Lecture: Looping Backwards and Loops in Loops
+// const listOfNeighbours = [['Canada', 'Mexico'], ['Spain'], ['Norway', 'Sewden', 'Russia']];
+
+// for (let i=0; i<listOfNeighbours.length; i++) {
+//     for(let j=0; j<listOfNeighbours[i].length; j++){
+//         console.log(`Neighbour: ${listOfNeighbours[i][j]}`);
+//     }
+// }
+
+
+//Lecture: The while loop
+// function percentageOfWorld1(population){
+//     return (population/7900)*100;
+// }
+
+// const populationIndia = 1400;
+// const populationChina = 1441;
+// const populationCanada = 40;
+// const populationNepal = 30;
+
+// const populations = [populationIndia, populationChina, populationCanada, populationNepal];
+
+// const percentages3 = [];
+// let i = 0;
+// while(i<populations.length) {
+//     percentages3.push(percentageOfWorld1(populations[i]));
+//     i++;
+// }
+
+// console.log(percentages3);
+
+
+
+//Congratulations on completing JavaScript Fundamentals - Part 2
 

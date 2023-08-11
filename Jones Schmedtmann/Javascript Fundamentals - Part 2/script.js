@@ -260,3 +260,116 @@ function logger() {
 // //Challenge
 // // `Shubham is a 32 year old student, and he has a driver's license`
 // console.log(shubham.getSummary());
+
+//Lecture: Iteration: The for loop
+// console.log('Lifting weights repetition 1');
+// console.log('Lifting weights repetition 2');
+// console.log('Lifting weights repetition 3');
+// console.log('Lifting weights repetition 4');
+// console.log('Lifting weights repetition 5');
+// console.log('Lifting weights repetition 6');
+// console.log('Lifting weights repetition 7');
+// console.log('Lifting weights repetition 8');
+// console.log('Lifting weights repetition 9');
+// console.log('Lifting weights repetition 10');
+
+//for loop keeps running while condition is TRUE
+// for(let rep = 1; rep <= 30; rep++) {
+//     console.log(`Lifting weights repetition ${rep}`);
+// }
+
+
+//Lecture: Looping arrays, Breaking and Continuing
+// const shubham = [
+//     'Shubham', 
+//     'Amlani',
+//     2037 - 2005,
+//     'student',
+//     ['Ankit', 'Mohammed', 'Karan'],
+//     true
+// ];
+// const types = [];
+// //console.log(shubham[0]);
+// //console.log(shubham[1]);
+// //console.log(shubham[2]);
+// //console.log(shubham[3]);
+// //console.log(shubham[4]);
+
+// for(let i = 0;i < shubham.length ; i++) {
+//     //Reading from shubham array
+//     console.log(shubham[i], typeof shubham[i]);
+//     //Filling types array
+//     // types[i] = typeof shubham[i];
+//     types.push(typeof shubham[i]);
+// }
+
+// console.log(types);
+
+// const years = [1992, 2005, 2006, 2008, 2020];
+// const ages = [];
+
+// for (let i = 0; i < years.length; i++) {
+//     ages.push(2037 - years[i]);
+// }
+// console.log(ages);
+
+// //continue and break statement
+// console.log(`-----ONLY STRINGS-----`);
+// for (let i = 0;i < shubham.length; i++){
+//     if(typeof shubham[i] !== 'string') continue;
+
+//     console.log(shubham[i], typeof shubham[i]);
+// }
+
+// console.log(`-----BREAK WITH NUMBER -----`);
+// for (let i = 0;i < shubham.length; i++){
+//     if(typeof shubham[i] === 'number') break;
+
+//     console.log(shubham[i], typeof shubham[i]);
+// }
+
+
+//Lecture: Looping Backwards and Loops in Loops
+// const shubham = [
+//         'Shubham', 
+//         'Amlani',
+//         2037 - 2005,
+//         'student',
+//         ['Ankit', 'Mohammed', 'Karan'],
+//         true
+//     ];
+
+// for(let i = shubham.length-1; i>=0; i--) {
+//     console.log(i, shubham[i]);
+// }
+
+// for (let exercise = 1; exercise <= 3; exercise++) {
+//     console.log(`------Starting exercise ${exercise}------`);
+//     for(let reps = 1; reps <= 5; reps++){
+//         console.log(`Lifting ${reps} rep of exercise ${exercise}`);
+//     }
+// }
+
+
+//Lecture: The while loop
+// for (let rep=1;rep<=10;rep++) {
+//     console.log(`Lifting weights repetition ${rep}`);
+// }
+
+// let rep = 1;
+// while(rep<=10) {
+//     console.log(`While: Lifting weights repetition ${rep}`);
+//     rep++;
+// }
+
+// let dice = Math.trunc(Math.random() * 6) + 1;
+// // console.log(dice);
+
+// while (dice !== 6) {
+//     console.log(`You rolled a ${dice}`);
+//     dice = Math.trunc(Math.random() * 6 + 1);
+//     if(dice === 6) console.log('Loops is about to end...');
+// }
+
+
+//Congratulations on completing JavaScript Fundamentals - Part 2
