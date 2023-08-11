@@ -85,3 +85,45 @@ function percentageOfWorld1(population){
 
 // neighbours[1] = `People's Republic of China`;
 // console.log(neighbours);
+
+//Lecture: Introduction to Objects
+
+
+// const myCountry = {
+//     country: 'India',
+//     capital: 'Delhi',
+//     language: 'Hindi',
+//     population: 1400,
+//     neighbours: ['Pakistan', 'China', 'Myanmar', 'Nepal', 'Sri Lanka']
+// };
+
+// console.log(`${myCountry.country} has ${myCountry.population} million ${myCountry.language}-speaking people, ${myCountry.neighbours.length} neighbouring countries and a capital called ${myCountry.capital}`);
+
+// myCountry.population = myCountry.population + 2;
+// myCountry['population'] = myCountry['population'] - 2;
+
+// console.log(`${myCountry.country} has ${myCountry.population} million ${myCountry.language}-speaking people, ${myCountry.neighbours.length} neighbouring countries and a capital called ${myCountry.capital}`);
+
+//Imp note:- don't forget to use '' while using bracket notation, its compulsory because bracket notation takes in a string.
+
+
+//Lecture: Object Methods
+
+// const myCountry = {
+//     country: 'India',
+//     capital: 'Delhi',
+//     language: 'Hindi',
+//     population: 1400,
+//     neighbours: ['Pakistan', 'China', 'Myanmar', 'Nepal', 'Sri Lanka'],
+//     describe: function() {
+//         return `${this.country} has ${this.population} million ${this.language}-speaking people, ${this.neighbours.length} neighbouring countries and a capital called ${this.capital}`;
+//     },
+//     checkIsIsland: function() {
+//         this.isIsland = this.neighbours.length == 0 ? true : false;
+//         return this.isIsland
+//     }
+// };
+
+// console.log(myCountry.describe());
+// console.log(myCountry.checkIsIsland());
+

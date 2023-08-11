@@ -36,3 +36,44 @@
 // console.log(checkWinner(avgDolphins, avgKoalas));
 //Status: Completed
 //Remarks: Excellent
+
+
+//Challenge 2
+// const calcTip = (bill) => {
+//     return bill >= 50 && bill <= 300 ? bill*0.15 : bill*0.2;
+// }
+// // console.log(calcTip(100));
+// const bills = [125, 555, 44];
+// const tips = [calcTip([bills[0]]), calcTip([bills[1]]), calcTip(bills[2])];
+// console.log(bills);
+// console.log(tips);
+// const total = [bills[0]+tips[0], bills[1]+tips[1], bills[2]+tips[2]];
+// console.log(total);
+
+//Status: Completed
+//Remarks: Don't forget parenthesis while using functions
+
+
+//Challenge 3
+const mark = {
+    firstName: 'Mark',
+    lastName: 'Miller',
+    mass: 78,
+    height: 1.69,
+    calcBMI: function() {
+        return this.mass/(this.height ** 2);
+    }
+}
+
+const john = {
+    firstName: 'John',
+    lastName: 'Smith',
+    mass: 92,
+    height: 1.95,
+    calcBMI: function() {
+        return this.mass/(this.height ** 2);
+    }
+}
+
+console.log(`${mark.firstName}'s BMI(${mark.calcBMI()}) is higher than ${john.firstName}'s (${john.calcBMI()})`);
+//Status: Under Verification

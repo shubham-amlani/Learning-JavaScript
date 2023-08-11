@@ -177,3 +177,86 @@ function logger() {
 // if (friends.includes('Krupal')){
 //     console.log('You have a friend called Krupal');
 // }
+
+
+// //Lecture: Introduction to Objects
+// const shubham = {
+//     firstName: 'Shubham',
+//     lastName: 'Amlani',
+//     age: 2037 - 2005,
+//     job: 'student',
+//     friends: ['Ankit', 'Karan', 'Mohammed', 'Krupal']
+// };
+// console.log(shubham);
+
+
+// //Lecture: Dot vs Bracket notation
+// console.log(shubham.lastName);
+// console.log(shubham['lastName']);
+
+// const nameKey = 'Name';
+// console.log(shubham['first' + nameKey]);
+// console.log(shubham['last' + nameKey]);
+
+// // console.log(shubham.'last' + nameKey); //will not work
+
+// // const interestedIn = prompt(`What do you want to know about Shubham? Choose between firstName, lastName, age, job and friends`);
+// let interestedIn;
+// console.log(shubham[interestedIn]);
+
+// if(shubham[interestedIn]){
+//     console.log(shubham[interestedIn]);
+// } else {
+//     console.log(`Wrong request!`)
+//     console.log(`What do you want to know about Shubham? Choose between firstName, lastName, age, job and friends`);
+// }
+
+// shubham.location = 'India';
+// shubham['instagram'] = '@shubham_amlani';
+// console.log(shubham);
+
+// //Challenge
+// //"Shubham has 4 friends, and his best friend is called Ankit"
+
+// console.log(`${shubham.firstName} has ${shubham.friends.length} friends, and his best friend is called ${shubham.friends[0]}`);
+
+//Status: completed
+//Remarks: nailed it
+
+
+//Lecture: Object Methods
+
+
+// const shubham = {
+//     firstName: 'Shubham',
+//     lastName: 'Amlani',
+//     birthYear: 2005,
+//     job: 'student',
+//     friends: ['Ankit', 'Karan', 'Mohammed', 'Krupal'],
+//     hasDriversLicense: false,
+    
+//     // calcAge: function(birthYear) {
+//     //     return 2037 - birthYear;
+//     // }
+
+//     calcAge: function () {
+//         // console.log(this);
+//         this.age = 2037 - this.birthYear;
+//         return this.age;
+//     },
+//     //function declaration would not work inside an object
+//     getSummary: function() {
+//         return `${this.firstName} is a ${this.calcAge()}-year old ${this.job}, and he has ${this.hasDriversLicense ? 'a':'no'} driver's license`;
+//     }
+// };
+
+// console.log(shubham.calcAge());//this function needs to be called before writing the below line
+// console.log(shubham.age);
+// console.log(shubham.age);
+// console.log(shubham.calcAge());
+// // console.log(shubham.calcAge());
+// // console.log(shubham['calcAge'](2005));
+
+// //Challenge
+// // `Shubham is a 32 year old student, and he has a driver's license`
+// console.log(shubham.getSummary());
