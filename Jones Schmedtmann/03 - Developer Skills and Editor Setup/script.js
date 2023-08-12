@@ -23,19 +23,19 @@ const temperatures = [3, -2, -6, -1, 'error', 9, 13, 17, 15, 14, 9, 5];
 // - Find min value in temp array
 // - Subtract min from max (amplitude) and return it
 
-const calcTempAmplitude = function (temps) {
-  let max = temps[0];
-  let min = temps[0];
-  for (let i = 0; i < temps.length; i++) {
-    if (typeof temps[i] !== 'number') continue;
-    if (temps[i] > max) max = temps[i];
-    if (temps[i] < min) min = temps[i];
-  }
-  //   console.log(max);
-  return max - min;
-};
+// const calcTempAmplitude = function (temps) {
+//   let max = temps[0];
+//   let min = temps[0];
+//   for (let i = 0; i < temps.length; i++) {
+//     if (typeof temps[i] !== 'number') continue;
+//     if (temps[i] > max) max = temps[i];
+//     if (temps[i] < min) min = temps[i];
+//   }
+//   //   console.log(max);
+//   return max - min;
+// };
 
-console.log(calcTempAmplitude(temperatures));
+// console.log(calcTempAmplitude(temperatures));
 
 // PROBLEM 2:
 // Function should not receive 2 arrays of temps
@@ -47,20 +47,57 @@ console.log(calcTempAmplitude(temperatures));
 // - How to merge 2 arrays?
 // - sub problem, Merge 2 arrays
 
-const calcTempAmplitudeNew = function (t1, t2) {
-  const temps = t1.concat(t2);
-  console.log(temps);
-  let max = temps[0];
-  let min = temps[0];
-  for (let i = 0; i < temps.length; i++) {
-    if (typeof temps[i] !== 'number') continue;
-    if (temps[i] > max) max = temps[i];
-    if (temps[i] < min) min = temps[i];
-  }
-  //   console.log(max);
-  return max - min;
-};
+// const calcTempAmplitudeNew = function (t1, t2) {
+//   const temps = t1.concat(t2);
+//   console.log(temps);
+//   let max = temps[0];
+//   let min = temps[0];
+//   for (let i = 0; i < temps.length; i++) {
+//     if (typeof temps[i] !== 'number') continue;
+//     if (temps[i] > max) max = temps[i];
+//     if (temps[i] < min) min = temps[i];
+//   }
+//   //   console.log(max);
+//   return max - min;
+// };
 
-console.log(calcTempAmplitudeNew([3, 5, 1], [9, 0, 5]));
+// console.log(calcTempAmplitudeNew([3, 5, 1], [9, 0, 5]));
 
 //Note: I've not separated the code of each lecture because it is not included in the language concepts, and will not be most probably referred in future :)
+
+//Debugging
+const measureKelvin = function () {
+  const measurement = {
+    type: 'temp',
+    unit: 'celsius',
+    value: 10,
+  };
+
+  const kelvin = Number(measurement.value) + 273;
+  // const kelvin = measurement.value + 273;
+  // console.warn(measurement.value);
+  // console.error(measurement.value);
+  // console.table(measurement);
+  //above line gives a nicely formatted table so that an object is readable
+  return kelvin;
+};
+//Bug was that prompt by default takes input as a string and so to do an arithematic operation on it we need to convert it to number using Number() function;
+// console.log(measureKelvin());
+
+// const calcTempAmplitudeBug = function (temps) {
+//   let max = 0;
+//   let min = 0;
+//   for (let i = 0; i < temps.length; i++) {
+//     if (typeof temps[i] !== 'number') continue;
+//     if (temps[i] > max) max = temps[i];
+//     if (temps[i] < min) min = temps[i];
+//   }
+//   console.log(min, max);
+//   return max - min;
+// };
+
+// const amplitudeBug = calcTempAmplitudeBug([3, 5, 1], [9, 4, 5]);
+// // A) Identify
+// console.log(calcTempAmplitudeBug(amplitudeBug));
+
+//this is an intentionally created bug for purpose of learning
