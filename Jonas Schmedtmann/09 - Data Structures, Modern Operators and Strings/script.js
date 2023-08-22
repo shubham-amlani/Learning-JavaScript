@@ -163,6 +163,8 @@ for (const player of game.scored) {
   scorers[player] ? scorers[player]++ : (scorers[player] = 1);
 }
 
+//Status: completed
+//Remarks: Focus more properly on concepts, they're getting tough
 */
 
 /*
