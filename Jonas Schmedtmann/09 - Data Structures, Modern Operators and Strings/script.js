@@ -4,6 +4,23 @@
 const flights =
   "_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30";
 
+const weekdays = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
+const openingHours = {
+  //could not be done before ES6
+  [weekdays[3] /*Instead of manually writing name*/]: {
+    open: 12,
+    close: 22,
+  },
+  [weekdays[4]]: {
+    open: 11,
+    close: 23,
+  },
+  [weekdays[5]]: {
+    open: 0, // Open 24 hours
+    close: 24,
+  },
+};
+
 // Data needed for first part of the section
 const restaurant = {
   name: "Classico Italiano",
@@ -12,25 +29,26 @@ const restaurant = {
   starterMenu: ["Focaccia", "Bruschetta", "Garlic Bread", "Caprese Salad"],
   mainMenu: ["Pizza", "Pasta", "Risotto"],
 
-  openingHours: {
-    thu: {
-      open: 12,
-      close: 22,
-    },
-    fri: {
-      open: 11,
-      close: 23,
-    },
-    sat: {
-      open: 0, // Open 24 hours
-      close: 24,
-    },
-  },
+  //1st enhancement is about objects
+  //Before ES6
+  // openingHours: openingHours,
 
-  order: function (starterIndex, mainIndex) {
+  //ES6 enhanced object literals
+  openingHours,
+
+  //2nd enhancement is writing methods
+
+  //Before ES6
+  // order: function (starterIndex, mainIndex) {
+  //   return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
+  //   //this keyword here points to the object.
+  // },
+
+  //After ES6
+  order(starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
-    //this keyword here points to the object.
   },
+  //Slightly easier syntax, it's preference of the developer
 
   orderDelivery: function ({
     starterIndex = 1,
@@ -72,8 +90,8 @@ const restaurant = {
   },
 };
 
-/*
-<---------- Coding Challenge #1 ---------->
+///////////////////////////////////////////////
+
 const game = {
   team1: "Bayern Munich",
   team2: "Borrussia Dortmund",
@@ -114,6 +132,123 @@ const game = {
     team2: 6.5,
   },
 };
+
+/*
+<---------- Coding Challenge #2 ---------->
+
+//1
+for (const [i, pl] of game.scored.entries()) {
+  console.log(`Goal ${i + 1}: ${pl}`);
+}
+
+//2
+const odds = Object.values(game.odds);
+console.log(odds);
+let sum = 0;
+for (const item of odds) {
+  sum += item;
+}
+sum /= odds.length;
+console.log(sum);
+
+//3
+console.log(Object.entries(game.odds));
+for (const [team, odd] of Object.entries(game.odds)) {
+  const teamStr = team === "x" ? "draw" : `victory ${game[team]}`;
+  console.log(`Odd of ${teamStr}: ${odd}`);
+}
+//Bonus
+const scorers = {};
+for (const player of game.scored) {
+  scorers[player] ? scorers[player]++ : (scorers[player] = 1);
+}
+
+*/
+
+/*
+<---------- Looping Objects: Object keys, values, and entries ----------> 
+
+
+const properties = Object.keys(openingHours);
+console.log(properties);
+
+let openStr = `We are open on ${properties.length} days: `;
+for (const day of properties) {
+  openStr += `${day}, `;
+}
+console.log(openStr);
+
+// Property VALUES
+const values = Object.values(openingHours);
+console.log(values);
+
+// Entire Object
+const entries = Object.entries(openingHours);
+console.log(entries);
+
+for (const [key, { open, close }] of entries) {
+  console.log(`On ${key} we open at ${open} and close at ${close}`);
+}
+
+*/
+
+/*
+<---------- Optional Chaining (?.) ---------->
+if (restaurant.openingHours && restaurant.openingHours.mon)
+  console.log(restaurant.openingHours.mon.open); //mon is not available, typeError
+// console.log(restaurant.openingHours.mon); //mon is not available, undefined
+
+// Without optional chaining
+// console.log(restaurant.openingHours.mon.open);
+
+// With optional chaining (?.), it still exists if it's a 0 or ''(empty string)
+console.log(restaurant.openingHours.mon?.open);
+console.log(restaurant.openingHours?.mon?.open);
+
+const days = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
+for (const day of days) {
+  // console.log(day);
+  const open = restaurant.openingHours[day]?.open ?? "closed";
+  console.log(`On ${day}, we open at ${open}`);
+}
+
+// Methods
+console.log(restaurant.order?.(0, 1) ?? "Method does not exist");
+console.log(restaurant.orderRisotto?.(0, 1) ?? "Method does not exist");
+
+//Arrays
+const users = [{ name: "Shubham", email: "hello@samlani.com" }];
+// const users = [];
+console.log(users[0]?.name ?? "User array empty");
+// console.log(users[1]?.name ?? "User array empty");
+if (users.length > 0) console.log(users[0].name);
+else {
+  console.log("user array empty");
+}
+*/
+
+/*
+
+<---------- for-of loop ---------->
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+for (const item of menu) console.log(item);
+
+// for (const item of menu.entries()) {
+//   console.log(`${item[0] + 1}: ${item[1]}`);
+// }
+
+//better way to do the same thing
+for (const [i, el] of menu.entries()) {
+  console.log(`${i + 1}: ${el}`);
+}
+
+*/
+
+// console.log([...menu.entries()]);
+
+/*
+<---------- Coding Challenge #1 ---------->
+
 
 //1
 // const players1 = game.players[0];
