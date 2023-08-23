@@ -132,39 +132,78 @@ const game = {
     team2: 6.5,
   },
 };
+/*
+<-------------------- New Data Structures in ES6 -------------------->
+<---------- Sets ---------->
+Set is a collection of unique values.
+*/
 
+const ordersSet = new Set([
+  "Pasta",
+  "Pizza",
+  "Pizza",
+  "Risotto",
+  "Pasta",
+  "Pizza",
+]);
+
+console.log(ordersSet);
+console.log(new Set("Shubham"));
+console.log(ordersSet.size);
+console.log(ordersSet.has("Pizza"));
+console.log(ordersSet.has("Bread"));
+ordersSet.add("Garlic Bread");
+ordersSet.add("Garlic Bread");
+// console.log(ordersSet.has("Bread"));
+console.log(ordersSet);
+ordersSet.delete("Risotto");
+// ordersSet.clear();
+console.log(ordersSet);
+
+for (const order of ordersSet) console.log(order);
+
+//Example
+const staff = ["Waiter", "Chef", "Waiter", "Manager", "Chef", "Waiter"];
+const staffUnique = [...new Set(staff)];
+console.log(staffUnique);
+console.log(
+  new Set(["Waiter", "Chef", "Waiter", "Manager", "Chef", "Waiter"]).size
+);
+
+console.log(new Set("shubhamamlani").size);
 /*
 <---------- Coding Challenge #2 ---------->
 
-//1
-for (const [i, pl] of game.scored.entries()) {
-  console.log(`Goal ${i + 1}: ${pl}`);
+
+//1.
+for (const [i, player] of game.scored.entries()) {
+  console.log(`Goal ${i + 1}: ${player}`);
 }
 
-//2
-const odds = Object.values(game.odds);
-console.log(odds);
-let sum = 0;
-for (const item of odds) {
-  sum += item;
-}
-sum /= odds.length;
-console.log(sum);
+//2.
+let avg = 0;
 
-//3
-console.log(Object.entries(game.odds));
+for (const odd of Object.values(game.odds)) {
+  avg += odd;
+}
+avg /= 3;
+console.log(avg);
+
+//3.
 for (const [team, odd] of Object.entries(game.odds)) {
-  const teamStr = team === "x" ? "draw" : `victory ${game[team]}`;
-  console.log(`Odd of ${teamStr}: ${odd}`);
+  let str = team === "x" ? `draw` : `${game[team]}`;
+  console.log(`Odd of ${str}: ${odd}`);
 }
-//Bonus
-const scorers = {};
-for (const player of game.scored) {
-  scorers[player] ? scorers[player]++ : (scorers[player] = 1);
+
+//BONUS.
+let scorers = {};
+for (const player of game.scored){
+
 }
 
 //Status: completed
 //Remarks: Focus more properly on concepts, they're getting tough
+
 */
 
 /*
