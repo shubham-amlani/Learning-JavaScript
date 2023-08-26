@@ -1,10 +1,10 @@
-"use strict";
+'use strict';
 
 // Data needed for a later exercise
 const flights =
-  "_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30";
+  '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
-const weekdays = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
+const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
 const openingHours = {
   //could not be done before ES6
   [weekdays[3] /*Instead of manually writing name*/]: {
@@ -23,11 +23,11 @@ const openingHours = {
 
 // Data needed for first part of the section
 const restaurant = {
-  name: "Classico Italiano",
-  location: "Via Angelo Tavanti 23, Firenze, Italy",
-  categories: ["Italian", "Pizzeria", "Vegetarian", "Organic"],
-  starterMenu: ["Focaccia", "Bruschetta", "Garlic Bread", "Caprese Salad"],
-  mainMenu: ["Pizza", "Pasta", "Risotto"],
+  name: 'Classico Italiano',
+  location: 'Via Angelo Tavanti 23, Firenze, Italy',
+  categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
+  starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
+  mainMenu: ['Pizza', 'Pasta', 'Risotto'],
 
   //1st enhancement is about objects
   //Before ES6
@@ -53,7 +53,7 @@ const restaurant = {
   orderDelivery: function ({
     starterIndex = 1,
     mainIndex = 0,
-    time = "20:00",
+    time = '20:00',
     address,
   }) {
     console.log(
@@ -72,10 +72,10 @@ const restaurant = {
     console.log(otherIngredients);
     // console.log(arr.length);
     const otherIngs = (arr) => {
-      let result = "";
+      let result = '';
       for (let i = 0; i < arr.length; i++) {
         if (i !== 0) {
-          result += ", ";
+          result += ', ';
         }
         result += arr[i];
       }
@@ -93,47 +93,311 @@ const restaurant = {
 ///////////////////////////////////////////////
 
 const game = {
-  team1: "Bayern Munich",
-  team2: "Borrussia Dortmund",
+  team1: 'Bayern Munich',
+  team2: 'Borrussia Dortmund',
   players: [
     [
-      "Neuer",
-      "Pavard",
-      "Martinez",
-      "Alaba",
-      "Davies",
-      "Kimmich",
-      "Goretzka",
-      "Coman",
-      "Muller",
-      "Gnarby",
-      "Lewandowski",
+      'Neuer',
+      'Pavard',
+      'Martinez',
+      'Alaba',
+      'Davies',
+      'Kimmich',
+      'Goretzka',
+      'Coman',
+      'Muller',
+      'Gnarby',
+      'Lewandowski',
     ],
     [
-      "Burki",
-      "Schulz",
-      "Hummels",
-      "Akanji",
-      "Hakimi",
-      "Weigl",
-      "Witsel",
-      "Hazard",
-      "Brandt",
-      "Sancho",
-      "Gotze",
+      'Burki',
+      'Schulz',
+      'Hummels',
+      'Akanji',
+      'Hakimi',
+      'Weigl',
+      'Witsel',
+      'Hazard',
+      'Brandt',
+      'Sancho',
+      'Gotze',
     ],
   ],
-  score: "4:0",
-  scored: ["Lewandowski", "Gnarby", "Lewandowski", "Hummels"],
-  date: "Nov 9th, 2037",
+  score: '4:0',
+  scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+  date: 'Nov 9th, 2037',
   odds: {
     team1: 1.33,
     x: 3.25,
     team2: 6.5,
   },
 };
+
+//////////////////////////////////////////////////
+
+const gameEvents = new Map([
+  [17, '⚽ GOAL'],
+  [36, '� Substitution'],
+  [47, '⚽ GOAL'],
+  [61, '� Substitution'],
+  [64, '� Yellow card'],
+  [69, '� Red card'],
+  [70, '� Substitution'],
+  [72, '� Substitution'],
+  [76, '⚽ GOAL'],
+  [80, '⚽ GOAL'],
+  [92, '� Yellow card'],
+]);
+/* 
+< ---------- Strings in JavaScript ----------> 
+*/
+
+/* <---------- Coding Challenge #4 ----------> */
+const textInputBox = document.getElementById('box');
+const button = document.querySelector('#btn');
+button.addEventListener('click', function () {
+  const textInputValue = textInputBox.value;
+  const splitted = textInputValue.split('\n');
+  const nsSplitted = [];
+  const final = [];
+  for (const i of splitted) {
+    nsSplitted.push(i.split('_'));
+  }
+  for (const [first, second] of nsSplitted) {
+    const formattedSecond =
+      second[0].toUpperCase() + second.slice(1).toLowerCase();
+    final.push(first + formattedSecond);
+  }
+  // console.log(final);
+  for (const [index, item] of final.entries()) {
+    console.log(`${item.trim().padEnd(20, ' ')}${'✅'.repeat(index + 1)}`);
+  }
+});
+
+//Status: Completed
+//Remarks: Excellent! Keep it up.
+
+/* 
+<---------- Working with strings - Part 3 ---------->
+
+// Split and join
+console.log('a+very+nice+string'.split('+'));
+console.log('Shubham Amlani'.split(' '));
+
+const [firstName, lastName] = 'Shubham Amlani'.split(' ');
+
+const newName = ['Mr.', firstName, lastName.toUpperCase()].join(' ');
+console.log(newName);
+
+const capitalizedName = function (name) {
+  const names = name.split(' ');
+  const namesUpper = [];
+  for (const n of names) {
+    // namesUpper.push(n[0].toUpperCase() + n.slice(1));
+    namesUpper.push(n.replace(n[0], n[0].toUpperCase()));
+  }
+  console.log(namesUpper.join(' '));
+};
+
+capitalizedName('jessica ann smith davis');
+capitalizedName('shubham amlani');
+
+// Padding a string
+const message = 'Go to gate 23!';
+console.log(message.padStart(25, '+').padEnd(30, '+'));
+console.log('Shubham'.padStart(20, '+').padEnd(30, '+'));
+
+const maskCreditCard = function (number) {
+  const str = number + '';
+  const last = str.slice(-4);
+  return last.padStart(str.length, '*');
+};
+
+console.log(maskCreditCard(43377345));
+console.log(maskCreditCard(4337345645345623));
+console.log(maskCreditCard(25023487209384029));
+
+// Repeat
+const message2 = 'Bad weather... All Departures Delayed... ';
+console.log(message2.repeat(5));
+
+const planesInLine = function (n) {
+  console.log(`There are ${n} planes in line ${'✈️'.repeat(n)}`);
+};
+planesInLine(5);
+planesInLine(3);
+planesInLine(12);
+
+*/
+
+/* 
+<---------- Working with strings - Part 2>
+
+const airline = 'TAP Air India';
+// const plane = 'A320';
+
+console.log(airline.toLowerCase());
+console.log(airline.toUpperCase());
+console.log('airline'.toUpperCase());
+
+//Fix capitalization in name
+const passenger = 'sHuBhAM'; //Shubham
+const passengerLower = passenger.toLowerCase();
+const passengerCorrect =
+  passengerLower[0].toUpperCase() + passengerLower.slice(1);
+console.log(passengerCorrect);
+
+//Function for doing the same
+const nameCorrector = (passengerName) => {
+  const passengerLower = passengerName.toLowerCase();
+  const passengerCorrect =
+    passengerLower[0].toUpperCase() + passengerLower.slice(1);
+  return passengerCorrect;
+};
+
+//Test
+console.log(nameCorrector('sHuBHaM'));
+//This works 🎉
+
+// Real life example: Comparing emails
+const email = 'hello@shubham.io';
+const loginEmail = '    Hello@Shubham.Io \n';
+
+// const lowerEmail = loginEmail.toLowerCase();
+// const trimmedEmail = lowerEmail.trim();
+// console.log(trimmedEmail);
+
+const normalizedEmail = loginEmail.toLowerCase().trim();
+console.log(normalizedEmail);
+console.log(email === normalizedEmail);
+
+//Function for comparing emails: Small Challenge
+const compareEmails = (userEmail) => {
+  const normalizedEmail = userEmail.toLowerCase().trim();
+  return normalizedEmail === email;
+};
+
+//Testing
+console.log(compareEmails('  Hello@Shubham.Io  '));
+
+// And that works 🎉
+// ES6 also contains methods, trimStart and trimEnd simply used to trim start or end
+
+// Replace parts of strings
+const priceND = '591.22₹';
+console.log(priceND);
+const priceUS = priceND.replace('₹', '$').replace('.', '-');
+console.log(priceUS);
+
+const announcement =
+  'All passengers come to barding door 23. Boarding door 23!';
+console.log(announcement.replace('door', 'gate'));
+console.log(announcement.replaceAll('door', 'gate'));
+console.log(announcement.replace(/door/g, 'gate'));
+
+//Notes: Og strings are not modified and all methods are case sensitive
+
+//Booleans
+const plane = 'Airbus A320neo';
+console.log(plane.includes('A320'));
+console.log(plane.includes('Boeing'));
+console.log(plane.startsWith('Airb'));
+
+if (plane.startsWith('Airbus') && plane.endsWith('neo')) {
+  console.log('Part of the NEW Airbus family');
+}
+
+// Practice exercise
+const checkBaggage = function (items) {
+  const baggage = items.toLowerCase();
+  // const baggage = items;
+  if (baggage.includes('knife') || baggage.includes('gun')) {
+    console.log('You are NOT allowed on board');
+  } else {
+    console.log('Welcome aboard!');
+  }
+};
+checkBaggage('I have a laptop, some Food and a pocket Knife');
+checkBaggage('Socks and camera');
+checkBaggage('Got some snacks and a gun for protection');
+
+*/
+
+/*
+<---------- Working with strings - Part 1 ----------> 
+
+const airline = 'TAP Air India';
+const plane = 'A320';
+console.log(plane[0]);
+console.log(plane[1]);
+console.log(plane[2]);
+console.log('B737'[0]);
+
+console.log(airline.length);
+console.log('B737'.length);
+
+console.log(airline.indexOf('r'));
+console.log(airline.lastIndexOf('i'));
+console.log(airline.indexOf('India'));
+
+console.log(airline.slice(4));
+console.log(airline.slice(4, 7));
+
+console.log(airline.slice(0, airline.indexOf(' ')));
+console.log(airline.slice(airline.lastIndexOf(' ') + 1));
+
+console.log(airline.slice(-2));
+console.log(airline.slice(1, -1));
+
+const checkMiddleSeat = function (seat) {
+  //B and E are middle seats
+  const s = seat.slice(-1);
+  if (s === 'B' || s === 'E') console.log('You got the middle seat');
+  else console.log('You got lucky');
+};
+
+checkMiddleSeat('11B');
+checkMiddleSeat('23C');
+checkMiddleSeat('3E');
+
+console.log(new String('Shubham'));
+console.log(typeof new String('Shubham'));
+
+console.log(typeof new String('Shbham').slice(1));
+*/
+
+/*
+<---------- Coding Challenge #3 ---------->
+
+//1.
+const eventsSet = new Set(gameEvents.values());
+// for (const value of gameEvents.values()) {
+//   eventsSet.add(value);
+// }
+const events = [...eventsSet];
+console.log(events);
+
+//2.
+gameEvents.delete(64);
+console.log(gameEvents);
+
+//3.
+console.log(
+  `An event happned, on average, every ${90 / gameEvents.size} minutes`
+);
+
+//4.
+for (const [min, event] of gameEvents) {
+  const half = min <= 45 ? "FIRST" : "SECOND";
+  console.log(`[${half} HALF] ${min}: ${event}`);
+}
+
+*/
+
 /*
 <-------------------- Summary: Which Data Structure to use? --------------------> 
+
+Theory Lecture
 */
 
 /*
