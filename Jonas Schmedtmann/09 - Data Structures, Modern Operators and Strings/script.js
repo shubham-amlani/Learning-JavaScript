@@ -152,7 +152,9 @@ const gameEvents = new Map([
 < ---------- Strings in JavaScript ----------> 
 */
 
-/* <---------- Coding Challenge #4 ----------> */
+/* 
+<---------- Coding Challenge #4 ----------> 
+
 const textInputBox = document.getElementById('box');
 const button = document.querySelector('#btn');
 button.addEventListener('click', function () {
@@ -176,6 +178,7 @@ button.addEventListener('click', function () {
 
 //Status: Completed
 //Remarks: Excellent! Keep it up.
+*/
 
 /* 
 <---------- Working with strings - Part 3 ---------->
