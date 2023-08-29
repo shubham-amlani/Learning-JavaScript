@@ -180,3 +180,148 @@ console.log(swiss);
 book.call(swiss, ...flightData);
 console.log(swiss);
 */
+
+/*
+<---------- Lecture: The bind method ---------->
+const lufthansa = {
+  airline: 'Lufthansa',
+  iataCode: 'LH',
+  bookings: [],
+  //Old syntax
+  // book: function() {}
+
+  //New Syntax
+  book(flightNum, name) {
+    console.log(
+      `${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`
+    );
+    this.bookings.push({ flight: `${this.iataCode}${flightNum}`, name });
+  },
+};
+
+const eurowings = {
+  airline: 'Eurowings',
+  iataCode: 'EW',
+  bookings: [],
+};
+
+const swiss = {
+  airline: 'Swiss Ari Lines',
+  iataCode: 'LX',
+  bookings: [],
+};
+
+const book = lufthansa.book;
+const bookEW = book.bind(eurowings);
+const bookLH = book.bind(lufthansa);
+const bookLX = book.bind(swiss);
+//Will return a new function with this keyword set to eurowings/lufthansa/swiss.
+
+bookEW(23, 'Steven Williams');
+console.log(eurowings);
+
+const bookEW23 = book.bind(eurowings, 23);
+bookEW23('Shubham Amlani');
+bookEW23('Martha Cooper');
+
+// With event listners
+lufthansa.planes = 300;
+lufthansa.buyPlane = function () {
+  console.log(this);
+
+  this.planes++;
+  console.log(this.planes);
+};
+// lufthansa.buyPlane();
+
+document
+  .querySelector('.buy')
+  .addEventListener('click', lufthansa.buyPlane.bind(lufthansa));
+
+// Partial application
+const addTax = (rate, value) => value + value * (rate / 100);
+console.log(addTax(10, 200));
+
+const addVAT = addTax.bind(null, 23);
+console.log(addVAT(100));
+console.log(addVAT(200));
+
+// With functions returning a function
+const addTax2 = rate => {
+  const addVAT2 = value => {
+    return value + value * (rate / 100);
+  };
+  return addVAT2;
+};
+
+//Testing
+const addVAT20 = addTax2(20);
+console.log(addVAT20(100));
+//Remarks: You did it exactly as it needs to be done.
+*/
+
+/*
+<---------- Coding Challenge #1 ---------->
+const poll = {
+  question: 'What is your favourite programming language?',
+  options: ['0: JavaScript', '1: Python', '2: Rust', '3: C++'],
+  // This generates [0, 0, 0, 0]. More in the next section!
+  answers: new Array(4).fill(0),
+  registerNewAnswer() {
+    const input = Number(
+      prompt(
+        `${this.question}\n${this.options.join('\n')}\n(Write option number)`
+      )
+    );
+    if (input >= 0 && input <= 3) {
+      this.answers[input] += 1;
+    } else {
+      alert(`Invalid input !!!`);
+    }
+    this.displayResults.call(poll);
+  },
+
+  displayResults(type = 'array') {
+    if (type === 'string') {
+      console.log(`Poll results are ${this.answers.join(', ')}`);
+    } else {
+      console.log(this.answers);
+    }
+  },
+};
+
+document
+  .querySelector('.poll')
+  .addEventListener('click', poll.registerNewAnswer.bind(poll));
+
+//  data1 = [5, 2, 3];
+//  data2 = [1, 5, 3, 9, 6, 1];
+poll.displayResults.call({ answers: [5, 2, 3] });
+poll.displayResults.call({ answers: [1, 5, 3, 9, 6, 1] }, 'string');
+//In this situation this keyword is an newly created object which is directly created when using call method.
+
+//Status: Completed
+//Remarks: Great! but BONUSes should be also solved.
+*/
+
+/*<---------- Lecture: Immediately Invoked function expressions (IIFE) ---------->
+const runOnce = function () {
+  console.log('This will never run again');
+};
+runOnce();
+
+(function () {
+  console.log('This will never run again');
+  const isPrivate = 23;
+})();
+
+() => console.log('This will ALSO never run again')(); //This doesn't work
+(() => console.log('This will ALSO never run again'))(); //This works (wrapped in paranthesis)
+
+{
+  const isPrivate = 23;
+  var notPrivate = 46;
+}
+// console.log(isPrivate);
+console.log(notPrivate);
+*/
