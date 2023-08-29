@@ -68,7 +68,9 @@ newPassport(shubham);
 checkIn(flight, shubham);
 */
 
-/* < ---------- Lecture: Functions Accepting callback functions---------- > */
+/* 
+< ---------- Lecture: Functions Accepting callback functions---------- > 
+
 const oneWord = function (str) {
   return str.replaceAll(' ', '').toLowerCase();
 };
@@ -96,3 +98,85 @@ const high5 = function () {
 document.body.addEventListener('click', high5);
 
 ['Shubham', 'Jonas', 'Adam'].forEach(high5);
+*/
+/*<---------- Lecture: Functions returning functions ---------->
+const greet = function (greeting) {
+  return function (name) {
+    console.log(`${greeting} ${name}`);
+  };
+};
+
+const greeterHey = greet('Hey');
+greeterHey('Shubham');
+greeterHey('Steve');
+
+greet('Hello')('Shubham');
+
+// Challenge :- Same function using arrow function
+const greetArrow = greeting => name => {
+  console.log(`${greeting} ${name}`);
+};
+
+greetArrow('Hi')('Shubham');
+*/
+
+/*<---------- Lecture: The call and Apply methods ---------->
+const lufthansa = {
+  airline: 'Lufthansa',
+  iataCode: 'LH',
+  bookings: [],
+  //Old syntax
+  // book: function() {}
+
+  //New Syntax
+  book(flightNum, name) {
+    console.log(
+      `${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`
+    );
+    this.bookings.push({ flight: `${this.iataCode}${flightNum}`, name });
+  },
+};
+
+lufthansa.book(239, 'Shubham Amlani');
+lufthansa.book(635, 'Steve Jobs');
+console.log(lufthansa);
+
+const eurowings = {
+  airline: 'Eurowings',
+  iataCode: 'EW',
+  bookings: [],
+};
+
+const book = lufthansa.book;
+
+//Does not work
+// book(23, 'Sarah Williams');
+
+// Call method
+book.call(eurowings, 223, 'Sarah Williams');
+console.log(eurowings);
+
+book.call(lufthansa, 239, 'Mary Cooper');
+console.log(lufthansa);
+
+const swiss = {
+  airline: 'Swiss Ari Lines',
+  iataCode: 'LX',
+  bookings: [],
+};
+
+book.call(swiss, 45, 'Mark Zuckerberg');
+console.log(swiss);
+
+// Apply method
+
+//Apply methos is similar to call method, but instead of taking list of arguments after setting what will be the this keyword(first parameter), it will receive an array of parameters to by supplied and not a list of parameters
+
+const flightData = [583, 'George Cooper'];
+book.apply(swiss, flightData);
+console.log(swiss);
+
+//Apply method is not used much in Modern Javascript anymore because we can use spread operator with call method
+book.call(swiss, ...flightData);
+console.log(swiss);
+*/
