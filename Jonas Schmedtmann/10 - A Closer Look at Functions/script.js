@@ -325,3 +325,101 @@ runOnce();
 // console.log(isPrivate);
 console.log(notPrivate);
 */
+
+/*
+<---------- Lecture: Closures ---------->
+const secureBooking = function () {
+  let passengerCount = 0;
+
+  return function () {
+    passengerCount++;
+    console.log(`${passengerCount} passengers`);
+  };
+};
+
+const booker = secureBooking();
+
+booker();
+booker();
+booker();
+//Closures are not a feature or a thing which we declare explicitly, it is done automatically by JavaScript.
+
+// Closure:- A function will have access to variable environment of it's parent function even after execution of that (parent) function is completed and it's popped out of execution context (function is returned), this is because of closures, so Closures maintain the connection between variable environment in which function was declared even after it's parent function has completed executing.
+
+//There is no way to access closures, it's not a tangible object in JS, it's an internal properly, we can just observe that a closure is happening.
+
+console.dir(booker);
+*/
+
+/*
+<---------- Lecture: More closure examples ---------->
+
+// Example - 1
+let f;
+
+const g = function () {
+  const a = 23;
+  f = function () {
+    console.log(a * 2);
+  };
+};
+
+const h = function () {
+  const b = 777;
+  f = function () {
+    console.log(b * 2);
+  };
+};
+g();
+f(); // It is assigned as a function inside g, i.e. g is parent of f, and therefore it is able to access the varible of g function (a in this case), even after execution of g(); is complete.
+
+// Re-assigning f function
+h();
+f();
+console.dir(f);
+
+// Closure makes sure that a function does not lose connection with the variables which werer available at the function's birth place (in simple words)
+
+// Example - 2
+const boardPassengers = function (n, wait) {
+  const perGroup = n / 3;
+
+  setTimeout(function () {
+    console.log(`We are now boarding all ${n} passengers`);
+    console.log(`There are 3 groups, each with ${perGroup} passengers`);
+  }, wait * 1000);
+
+  console.log(`Will start boarding in ${wait} seconds`);
+};
+
+// setTimeout(function () {
+//   console.log(`TIMER`);
+// }, 1000);
+
+boardPassengers(180, 3);
+//The function inside setTimeout is executed completely independently of the outer function (it's parent function) which is boardPassengers, boardPassengers's execution is completed when we see 'Will start boarding...' in the console, and after 3 seconds of completion of execution of boardPassengers, function inside setTimeout is executed and it still has access to variables created in boardPassenger function (it's parent function) which are 'perGroup' and 'wait' and 'n', so this happens because of closure.
+const perGroup = 1000;
+
+// Closures have priority 'over' scope chain, so if it used to give scope chain the priority, perGroup would be taken as 1000 as declared in global scope, but it took it as n/3, so hence proved that,
+
+// "Closures have priority over the scope chain".
+*/
+
+/*<---------- Lectures of Section 10 of The Complete JavaScript course is completed, now a Coding challenge #2 ---------->*/
+
+/*<---------- Coding challenge #2 ---------->*/
+(function () {
+  const header = document.querySelector('h1');
+  header.style.color = 'red';
+  document.querySelector('body').addEventListener('click', function () {
+    header.style.color = 'blue';
+  });
+})();
+
+// Step 2, explanation to yourself
+//Explanation:- The function inside the addEvenListner is a clild function of the IIFE which changes the color of h1 to red, now because the function inside addEventListner is child of IIFE it will still have connection with variable envionment of the parent IIFE even after execution of IIFE is finished and it's execution context is popped out of call stack, in this case it still has access to header variable containing selection of h1 element.
+
+//Status:- Completed.
+//Remarks:- Excellent! Keep it up.
+
+/*<---------- Here Section 010 of The complete JavaScript course if completed along with all lectures and Challenges with Status: Completed. Well Done !!! ---------->*/
