@@ -61,22 +61,45 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
+/*<---------- Lecture: Creating DOM Elements ---------->*/
+const displayMovements = function (movements) {
+  containerMovements.innerHTML = '';
+  // .textContent = 0
+
+  movements.forEach(function (mov, i) {
+    const type = mov > 0 ? 'deposit' : 'withdrawal';
+    const html = `
+    <div class="movements__row">
+          <div class="movements__type movements__type--${type}">${
+      i + 1
+    } ${type}</div>
+          <div class="movements__value">${mov}</div>
+        </div>
+    `;
+    containerMovements.insertAdjacentHTML('afterbegin', html);
+  });
+};
+displayMovements(account1.movements);
+
+// console.log(containerMovements.innerHTML);
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
 
-const currencies = new Map([
-  ['USD', 'United States dollar'],
-  ['EUR', 'Euro'],
-  ['GBP', 'Pound sterling'],
-  ['INR', 'Indian Rupee'],
-]);
+// const currencies = new Map([
+//   ['USD', 'United States dollar'],
+//   ['EUR', 'Euro'],
+//   ['GBP', 'Pound sterling'],
+//   ['INR', 'Indian Rupee'],
+// ]);
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
 /*
 <---------- Lecture: Simple Array Methods ---------->
+
 
 let arr = ['a', 'b', 'c', 'd', 'e'];
 
@@ -106,6 +129,122 @@ const letters = arr.concat(arr2);
 console.log(letters);
 console.log([...arr, ...arr2]);
 
-// join()
+// join() (doesn't mutate original array)
 console.log(letters.join(' - '));
+// console.log(letters);
+*/
+
+/*<---------- Lecture: The new at method ---------->
+//Added in ES2022
+const arr = [23, 11, 64];
+console.log(arr[0]);
+console.log(arr.at(0));
+
+//getting last element of an array
+console.log(arr[arr.length - 1]);
+console.log(arr.slice(-1)[0]);
+console.log(arr.at(-2));
+
+console.log('shubham'.at(0));
+console.log('shubham'.at(-1));
+*/
+
+/*<---------- Lecture: Looping arrays: forEach ---------->
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+// for (const movement of movements) {
+for (const [i, movement] of movements.entries()) {
+  if (movement > 0) {
+    console.log(`Movement: ${i + 1}: You deposited ${movement}`);
+  } else {
+    console.log(`Movement: ${i + 1}: You withdrew ${Math.abs(movement)}`);
+  }
+}
+
+console.log('----- FOREACH -----');
+// Order of parameters in important here, first is the array element, second is index, and third will be the array, we can use only one, or only two or all three based on usecase
+movements.forEach(function (movement, index, array) {
+  if (movement > 0) {
+    console.log(`Movement: ${index + 1}: You deposited ${movement}`);
+  } else {
+    console.log(`Movement: ${index + 1}: You withdrew ${Math.abs(movement)}`);
+  }
+});
+//Break statements do not work with forEach loop, we can simply never break out of a forEach loop, it will complete only after looping on each element of an array, and there's no option to break out of an forEach loop, if in any case we need to break out of the loop we need to keep using forof loop instead.
+
+// 0: function(200)
+// 1: function(450)
+// 2: function(-400)
+// ...
+*/
+
+/*<---------- Lecture: forEach with maps and sets ---------->
+//With map
+const currencies = new Map([
+  ['USD', 'United States dollar'],
+  ['EUR', 'Euro'],
+  ['GBP', 'Pound sterling'],
+  ['INR', 'Indian Rupee'],
+]);
+
+currencies.forEach(function (value, key, map) {
+  console.log(`${key}: ${value}`);
+});
+
+// With Set
+const currenciesUnique = new Set(['INR', 'GBP', 'USD', 'INR']);
+console.log(currenciesUnique);
+
+currenciesUnique.forEach(function (value, key, map) {
+  console.log(`${key}: ${value}`);
+});
+// Sets dosen't have keys or indexes, so keys dosen't make sense here, so to keep all the forEach loops same and avoid confusion among developers, the key is kept exactly same as values in case of forEach with sets to maintain consistency in development
+*/
+
+/*<---------- Lecture:- Project: "Bankist" app  ---------->
+Just Overview and analyzing the demo app and the starter files and files and data available for the project, #NO Code.
+*/
+
+/*
+<---------- Coding Challenge #1 ---------->
+
+const checkDogs = function (dogsJulia, dogsKate) {
+  const dogsJuliaCopy = [...dogsJulia];
+  dogsJuliaCopy.shift();
+  dogsJuliaCopy.pop();
+  dogsJuliaCopy.pop();
+  console.log(dogsJuliaCopy);
+  console.log(`----- Julia's Data -----`);
+  dogsJuliaCopy.forEach(function (age, dog) {
+    const str =
+      age < 3 ? 'is still a puppy' : `is an adult, and is ${age} years old`;
+    console.log(`Dog number ${dog + 1} is ${str}`);
+  });
+  console.log(`----- Kate's Data -----`);
+  dogsKate.forEach(function (age, dog) {
+    const str =
+      age < 3 ? 'is still a puppy' : `is an adult, and is ${age} years old`;
+    console.log(`Dog number ${dog + 1} ${str}`);
+  });
+};
+
+const dataJulia1 = [3, 5, 2, 12, 7];
+const dataKate1 = [4, 1, 15, 8, 3];
+const dataJulia2 = [9, 16, 6, 8, 3];
+const dataKate2 = [10, 5, 6, 1, 4];
+checkDogs(dataJulia1, dataKate1);
+checkDogs(dataJulia2, dataKate2);
+
+// Status: Completed
+// Remarks: Excellent, Keep it up !!
+*/
+
+/*<---------- Lecture: Data Transformations - map, filter and reduce ---------->
+
+//Theory lecture
+--> map returns a new array containing the results of applying an operation on all original array elements
+
+--> filter returns a new array containing the array elements that passed a specified test condition
+
+--> reduce boild ("reduces") all array elements down to one single value (e.g. adding all the elements together)
 */
