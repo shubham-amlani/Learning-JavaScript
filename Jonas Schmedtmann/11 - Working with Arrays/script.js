@@ -85,6 +85,30 @@ const calcDisplayBalance = function (movements) {
   const balance = movements.reduce((acc, mov) => acc + mov, 0);
   labelBalance.textContent = `${balance} EUR`;
 };
+calcDisplayBalance(account1.movements);
+
+const calcDisplaySummary = function (movements) {
+  const incomes = movements
+    .filter(mov => mov > 0)
+    .reduce((acc, mov) => acc + mov, 0);
+  labelSumIn.textContent = `${incomes}€`;
+
+  const out = movements
+    .filter(mov => mov < 0)
+    .reduce((acc, mov) => acc + mov, 0);
+  labelSumOut.textContent = `${Math.abs(out)}€`;
+
+  const interest = movements
+    .filter(mov => mov > 0)
+    .map(deposit => (deposit * 1.2) / 100)
+    .filter((int, i, arr) => {
+      // console.log(arr);
+      return int >= 1;
+    })
+    .reduce((acc, int) => acc + int, 0);
+  labelSumInterest.textContent = `${interest}€`;
+};
+calcDisplaySummary(account1.movements);
 
 const createUsernames = function (accs) {
   accs.forEach(function (acc) {
@@ -97,7 +121,6 @@ const createUsernames = function (accs) {
 };
 createUsernames(accounts);
 
-calcDisplayBalance(account1.movements);
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -298,7 +321,7 @@ console.log(movementsDescriptions);
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
-// const deposits = movements.filter(function() {
+// const deposits = movements.filter(function(mov) {
 //   return mov>0;
 // });
 
@@ -344,7 +367,7 @@ console.log(max);
 */
 
 /*
-<---------- Coding Challenge #1 ---------->
+<---------- Coding Challenge #2 ---------->
 
 const calcAverageHumanAge = function (ages) {
   const humanAges = ages.map(dogAge =>
@@ -370,4 +393,63 @@ console.log(calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]));
 
 // Status: Completed
 // Remarks: Brilliant !!!
+*/
+
+/*
+<---------- Lecture: The magic of chaining methods ---------->
+
+const eurToUsd = 1.1;
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+console.log(movements);
+const totalDepositsUSD = movements
+  .filter(mov => mov > 0)
+  // .map((mov, i, arr) => {
+  //   console.log(arr);
+  //   return mov * eurToUsd;
+  // })
+  .map(mov => mov * eurToUsd)
+  .reduce((acc, mov) => acc + mov, 0);
+console.log(totalDepositsUSD);
+
+// We should not overuse chaining, as it can cause performance issues in cases of large arrays, we should optimize it.
+// We should not chain methods that modifies original array, we can do that at a small scale but not in functional and large applications 
+*/
+
+/*
+<---------- Coding Challeng #3 ---------->
+const calcAgerageHumanAge = function (ages) {
+  const avgHumanAge = ages
+    .map(age => (age <= 2 ? 2 * age : 16 + age * 4))
+    .filter(humanAge => humanAge >= 18)
+    .reduce((acc, humanAge, i, arr) => (acc += humanAge / arr.length), 0);
+  return avgHumanAge;
+};
+console.log(calcAgerageHumanAge([5, 2, 4, 1, 15, 8, 3]));
+console.log(calcAgerageHumanAge([16, 6, 10, 5, 6, 1, 4]));
+//Status: Completed
+//Remarks: Excellent !!! (It was easy though)
+*/
+
+/*
+<---------- Lecture: The find method ---------->
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+const firstWithdrawl = movements.find(mov => mov < 0);
+//Returns first element which satisfies the condition, returns an element, not an array.
+console.log(movements);
+console.log(firstWithdrawl);
+
+console.log(accounts);
+const account = accounts.find(acc => acc.owner === 'Jessica Davis');
+console.log(account);
+
+//Same functionality with for...of loop
+let accountC;
+for (const obj of accounts) {
+  if (obj.owner === 'Jessica Davis') {
+    accountC = obj;
+  }
+}
+console.log(accountC);
 */
