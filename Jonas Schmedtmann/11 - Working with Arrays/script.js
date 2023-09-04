@@ -62,11 +62,12 @@ const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
 /*<---------- Lecture: Creating DOM Elements ---------->*/
-const displayMovements = function (movements) {
+const displayMovements = function (movements, sort = false) {
   containerMovements.innerHTML = '';
-  // .textContent = 0
 
-  movements.forEach(function (mov, i) {
+  const movs = sort ? movements.slice().sort((a, b) => a - b) : movements;
+
+  movs.forEach(function (mov, i) {
     const type = mov > 0 ? 'deposit' : 'withdrawal';
     const html = `
     <div class="movements__row">
@@ -221,7 +222,14 @@ btnClose.addEventListener('click', function (e) {
 
     // Deselecting input fields
   }
-  closeUser = closePin = '';
+  inputCloseUsername.value = inputClosePin.value = '';
+});
+
+let sorted = false;
+btnSort.addEventListener('click', function (e) {
+  e.preventDefault();
+  displayMovements(currentAccount.movements, !sorted);
+  sorted = !sorted;
 });
 
 /////////////////////////////////////////////////
@@ -630,3 +638,243 @@ const overallBalance2 = accounts
 
 console.log(overallBalance2);
 */
+
+/*
+<---------- Lecture: Sorting Arrays ---------->
+
+// Strings
+const owners = ['Jonas', 'Zach', 'Adam', 'Martha'];
+console.log(owners.sort()); //(mutates original array)
+console.log(owners);
+
+// Numbers
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+console.log(movements);
+// console.log(movements.sort()); // Does not work, sorts it as a string
+
+// This is the rule of how callbacks on sort method work
+// return < 0, A, B (keep order)
+// return > 0, B, A (switch order)
+
+// Ascending
+// movements.sort((a, b) => {
+//   if (a > b) return 1;
+//   if (a < b) return -1;
+// });
+
+movements.sort((a, b) => a - b);
+
+console.log(movements);
+
+// Descending
+// movements.sort((a, b) => {
+//   if (a < b) return 1;
+//   if (a > b) return -1;
+// });
+movements.sort((a, b) => b - a);
+
+console.log(movements);
+// It is not going to work on mixed arrays, meaning arrays containing multiple types of data, for ex strings along with numbers...so we should not use sort method in these situations, and actually there is no point of doing this.
+*/
+
+/*
+<---------- Lecture: More ways of creating and filling arrays ---------->
+
+const arr = [1, 2, 3, 4, 5, 6, 7];
+console.log(new Array(1, 2, 3, 4, 5, 6, 7));
+
+// Empty arrays with fill method
+const x = new Array(7);
+console.log(x);
+// console.log(x.map(() => 5));
+// x.fill(1);
+x.fill(1, 3, 5);
+x.fill(1);
+console.log(x);
+
+// Already declared and filled array with fill method
+arr.fill(23, 4, 6);
+console.log(arr);
+
+// Array.from
+const y = Array.from({ length: 7 }, () => 1);
+console.log(y);
+
+const z = Array.from({ length: 7 }, (_, i) => i + 1);
+console.log(z);
+
+// An array containing 100 random dice rolls (assignment)
+const randomDice = Array.from(
+  { length: 100 },
+  () => Math.trunc(Math.random() * 6) + 1
+);
+console.log(randomDice);
+
+labelBalance.addEventListener('click', function () {
+  const movementsUI = Array.from(
+    document.querySelectorAll('.movements__value'),
+    el => Number(el.textContent.replace('€', ''))
+  );
+
+  console.log(movementsUI);
+
+  const movementsUI2 = [...document.querySelectorAll('.movements__value')];
+
+  console.log(movementsUI2);
+});
+*/
+
+/*<---------- Lecture: Summary: Which array method to use? ---------->
+
+Theory lecture
+
+--> We've learnt about 23 array method in JavaScript and we can do all operations with that we can possibly imagine with array in the language, but which method to use in what situation is a confusion, because 23 methods are a hell lot of methods and creates kind of a mess, so this lecture addressed that problem.
+
+--> Best way to figure out which method to use in any situation is by starting to ask the question "What do I actually want to do with this array?"
+
+---> To mutate the original array
+  --> Add to original:
+    -> .push (end)
+    -> .unshift (start)
+
+  --> Remove from original:
+    -> .pop (end)
+    -> .shift (start)
+    -> .splice (any)
+
+  --> Others:
+    -> .reverse
+    -> .sort
+    -> .fill
+
+---> A new array
+  --> Computed from original:
+    -> .map (loop)
+
+  --> Filtered using condition:
+    -> .filter
+  
+  --> Portion of original:
+    -> .slice
+  
+  --> Adding original to other:
+    -> .concat
+  
+  --> Flattening the original:
+    -> .flat
+    -> .flatMap
+
+---> An array index
+  --> Based on value:
+    -> .indexOf
+
+  --> Based on test condition:
+    -> .findIndex
+
+---> An array element
+  --> Based on test condition
+    -> .find
+
+---> Know if array includes
+  --> Based on value:
+    -> .includes
+  
+  --> Based on test condition:
+    -> .some
+    -> .every
+
+---> A new string
+  --> Based on separator string:
+   -> .join
+
+---> To trasform to value
+  --> Based on accumulator:
+    -> .reduce (Boil down array to single value of any type: number, string, boolean, or even new array or object)
+
+---> To just loop array
+  --> Based on callback:
+    -> .forEach (Does not create a new array and does not even produce any value, just loops over it)
+
+----- and That's it -----
+*/
+
+/*<---------- Lecture: Array methods practice ---------->
+
+// Skip for now
+*/
+
+/*
+<---------- Coding Challenge #4 ---------->
+
+const dogs = [
+  { weight: 22, curFood: 250, owners: ['Alice', 'Bob'] },
+  { weight: 8, curFood: 200, owners: ['Matilda'] },
+  { weight: 13, curFood: 275, owners: ['Sarah', 'John'] },
+  { weight: 32, curFood: 340, owners: ['Michael'] },
+];
+
+// 1.
+dogs.forEach(dogObj => (dogObj.recommendedFood = dogObj.weight ** 0.75 * 28));
+
+//2.
+const sarahDogObj = dogs.find(obj => obj.owners.includes('Sarah'));
+
+if (sarahDogObj.curFood > sarahDogObj.recommendedFood * 1.1) {
+  console.log("Sarah's dog eats Too much");
+} else if (sarahDogObj.curFood < sarahDogObj.recommendedFood * 0.9) {
+  console.log("Sarah's dog eats Too little");
+} else {
+  console.log("Sarah's dog eats perfectly");
+}
+
+//3.
+const ownersEatTooMuch = dogs
+  .filter(obj => obj.curFood > obj.recommendedFood * 1.1)
+  .flatMap(obj => obj.owners);
+console.log(ownersEatTooMuch);
+
+const ownersEatTooLittle = dogs
+  .filter(obj => obj.curFood < obj.recommendedFood * 0.9)
+  .flatMap(obj => obj.owners);
+console.log(ownersEatTooLittle);
+
+//4.
+const strMuch = `${ownersEatTooMuch.join(' and ')}'s dogs eat too much!`;
+console.log(strMuch);
+
+const strLittle = `${ownersEatTooLittle.join(' and ')}'s dogs eat too little!`;
+console.log(strLittle);
+
+//5.
+console.log(dogs.some(obj => obj.curFood === obj.recommendedFood));
+
+//6.
+console.log(
+  dogs.some(
+    obj =>
+      obj.curFood <= obj.recommendedFood * 1.1 &&
+      obj.curFood >= obj.recommendedFood * 0.9
+  )
+);
+
+// 7.
+const okayFood = dogs.filter(
+  obj =>
+    obj.curFood <= obj.recommendedFood * 1.1 &&
+    obj.curFood >= obj.recommendedFood * 0.9
+);
+
+console.log(okayFood);
+
+//8.
+const dogsCopy = [...dogs];
+dogsCopy.sort((obj1, obj2) => {
+  return obj1.recommendedFood - obj2.recommendedFood;
+});
+console.log(dogsCopy);
+
+// Status: Completed
+// Remarks: Pending (Probable: Nice !!!)
+*/
+
+/*<-------------------- Congratulations on completing the longest section of the course -------------------->*/
