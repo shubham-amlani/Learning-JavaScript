@@ -113,22 +113,246 @@ tabsContainer.addEventListener('click', function (e) {
 
 /*<---------- LID: 003 ---------->*/
 // Menu fade animation
-nav.addEventListener('mouseover', function (e) {
+const handleHover = function (e, opacity) {
   if (e.target.classList.contains('nav__link')) {
     const link = e.target;
     const siblings = link.closest('.nav').querySelectorAll('.nav__link');
     const logo = link.closest('.nav').querySelector('img');
 
     siblings.forEach(el => {
-      if (el !== link) {
-        el.style.opacity = this;
-      }
+      if (el !== link) el.style.opacity = this;
     });
     logo.style.opacity = this;
   }
+};
+
+// Passing "argument" into handler function
+nav.addEventListener('mouseover', handleHover.bind(0.5));
+nav.addEventListener('mouseout', handleHover.bind(1));
+
+/*<---------- LID: 004 ---------->
+// Sticky navigation
+const initialCoords = section1.getBoundingClientRect();
+console.log(initialCoords);
+window.addEventListener('scroll', function (e) {
+  console.log(window.scrollY);
+
+  if (window.scrollY > initialCoords.top) nav.classList.add('sticky');
+  else nav.classList.remove('sticky');
+});
+*/
+
+/*<---------- LID: 005 ---------->*/
+// Sticky navigation: Intersection Observer API
+// Note:- while making notes, note this properly, it's hard to understand from documentation.
+
+// const obsCallback = function (entries, observer) {
+//   entries.forEach(entry => console.log(entry));
+// };
+
+// const obsOptions = {
+//   root: null,
+//   threshold: [0, 0.2],
+// };
+
+// const observer = new IntersectionObserver(obsCallback, obsOptions);
+// observer.observe(section1);
+
+const header = document.querySelector('.header');
+const navHeight = nav.getBoundingClientRect().height;
+// console.log(navHeight);
+
+const stickyNav = function (entries) {
+  const [entry] = entries;
+  // console.log(entry);
+
+  if (!entry.isIntersecting) nav.classList.add('sticky');
+  else nav.classList.remove('sticky');
+};
+
+const headerObserver = new IntersectionObserver(stickyNav, {
+  root: null,
+  threshold: 0,
+  rootMargin: `-${navHeight}px`,
+});
+headerObserver.observe(header);
+
+/*<---------- LID: 006 ---------->*/
+
+// Reveal sections
+const allSections = document.querySelectorAll('.section');
+
+const revealSection = function (entries, observer) {
+  const [entry] = entries;
+
+  if (!entry.isIntersecting) return;
+  else entry.target.classList.remove('section--hidden');
+  observer.unobserve(entry.target);
+};
+
+const sectionObserver = new IntersectionObserver(revealSection, {
+  root: null,
+  threshold: 0.15,
 });
 
-nav.addEventListener('mouseout', function (e) {});
+allSections.forEach(function (section) {
+  sectionObserver.observe(section);
+  // section.classList.add('section--hidden');
+});
+
+/*<---------- LID: 007 ---------->*/
+
+// Lazy loading images
+const imgTargets = document.querySelectorAll('img[data-src]');
+console.log(imgTargets);
+
+const loadImg = function (entries, observer) {
+  const [entry] = entries;
+
+  if (!entry.isIntersecting) return;
+
+  // Replace src with data-src
+  entry.target.src = entry.target.dataset.src;
+  entry.target.addEventListener('load', function () {
+    entry.target.classList.remove('lazy-img');
+  });
+
+  observer.unobserve(entry.target);
+};
+
+const imgObserver = new IntersectionObserver(loadImg, {
+  root: null,
+  threshold: 0,
+  rootMargin: '200px',
+});
+
+imgTargets.forEach(img => imgObserver.observe(img));
+
+/*<---------- LID: 008 ---------->*/
+
+// Slider
+
+const slider = function () {
+  const slides = document.querySelectorAll('.slide');
+  const btnLeft = document.querySelector('.slider__btn--left');
+  const btnRight = document.querySelector('.slider__btn--right');
+  const dotContainer = document.querySelector('.dots');
+
+  let curSlide = 0;
+  const maxSlide = slides.length;
+
+  // const slider = document.querySelector('.slider');
+  // slider.style.transform = 'scale(0.4) translateX(-800px)';
+  // slider.style.overflow = 'visible';
+
+  // Functions
+  const createDots = function () {
+    slides.forEach(function (_, i) {
+      dotContainer.insertAdjacentHTML(
+        'beforeend',
+        `<button class="dots__dot" data-slide="${i}"></button>`
+      );
+    });
+  };
+
+  const activateDot = function (slide) {
+    document
+      .querySelectorAll('.dots__dot')
+      .forEach(dot => dot.classList.remove('dots__dot--active'));
+
+    document
+      .querySelector(`.dots__dot[data-slide="${slide}"]`)
+      .classList.add('dots__dot--active');
+  };
+
+  const goToSlide = function (slide) {
+    slides.forEach(
+      (s, i) => (s.style.transform = `translateX(${(i - slide) * 100}%)`)
+    );
+  };
+
+  // Next slide
+  const nextSlide = function () {
+    if (curSlide === maxSlide - 1) curSlide = 0;
+    else curSlide++;
+
+    goToSlide(curSlide);
+    activateDot(curSlide);
+  };
+
+  // Previous slide
+  const prevSlide = function () {
+    if (curSlide === 0) curSlide = maxSlide - 1;
+    else curSlide--;
+
+    goToSlide(curSlide);
+    activateDot(curSlide);
+  };
+
+  // init
+  const init = function () {
+    goToSlide(0);
+    createDots();
+
+    activateDot(0);
+  };
+  init();
+  // Event handlers
+  btnRight.addEventListener('click', nextSlide);
+  btnLeft.addEventListener('click', prevSlide);
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowLeft') prevSlide();
+    e.key === 'ArrowRight' && nextSlide();
+  });
+
+  dotContainer.addEventListener('click', function (e) {
+    if (e.target.classList.contains('dots__dot')) {
+      const { slide } = e.target.dataset;
+      goToSlide(slide);
+      activateDot(slide);
+    }
+  });
+};
+slider();
+
+/*<---------- LID: 009 ---------->
+
+// Slider component part 2: Dots
+
+const dotContainer = document.querySelector('.dots');
+const createDots = function () {
+  slides.forEach(function (_, i) {
+    dotContainer.insertAdjacentHTML(
+      'beforeend',
+      `<button class="dots__dot" data-slide="${i}"></button>`
+    );
+  });
+};
+createDots();
+
+const activeDot = function (slide) {
+  document
+    .querySelectorAll('.dots__dot')
+    .forEach(dot => dot.classList.remove('dots__dot--active'));
+
+  document
+    .querySelector(`.dots__dot[data-slide="${slide}"]`)
+    .classList.add('dots__dot--active');
+};
+activeDot(0);
+
+dotContainer.addEventListener('click', function (e) {
+  if (e.target.classList.contains('dots__dot')) {
+    const { slide } = e.target.dataset;
+    goToSlide(slide);
+    activeDot(slide);
+  }
+});
+
+  For code formatting purposes, logic is written here separately for reference.
+*/
+
 ///////////////////////////////////////
 /*<---------- Lecture: Selecting, Creating, and deleting elements ---------->
 
@@ -364,4 +588,28 @@ LID: 002
 /*<---------- Lecture: Passing arguments to event handlers ---------->
 
 LID: 003;
+*/
+
+/*<---------- Lecture: Implementing sticky navigation ---------->
+LID: 004
+*/
+
+/*<---------- Lecture: A better way: The intersection observer API ---------->
+LID: 005
+*/
+
+/*<---------- Lecture: Revealing elements on scroll ---------->
+LID: 006
+*/
+
+/*<---------- Lecture: Lazy loading images ---------->
+LID: 007
+*/
+
+/*<---------- Lecture: Building a slider component: Part 1 ---------->
+LID: 008
+*/
+
+/*<---------- Lecture: Building a slider component: Part 2 ---------->
+LID: 009
 */
