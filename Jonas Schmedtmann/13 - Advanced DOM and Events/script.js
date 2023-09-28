@@ -204,7 +204,7 @@ allSections.forEach(function (section) {
 
 // Lazy loading images
 const imgTargets = document.querySelectorAll('img[data-src]');
-console.log(imgTargets);
+// console.log(imgTargets);
 
 const loadImg = function (entries, observer) {
   const [entry] = entries;
@@ -425,8 +425,8 @@ console.log(logo.designer); //undefined
 console.log(logo.getAttribute('designer'));
 logo.setAttribute('company', 'Bankist');
 
-console.log(logo.src); //absolute
-console.log(logo.getAttribute('src')); //relative
+console.log(logo.src); // absolute
+console.log(logo.getAttribute('src')); // relative
 
 const link = document.querySelector('.nav__link--btn');
 console.log(link.href);
@@ -440,7 +440,7 @@ console.log(logo.dataset.versionNumber);
 logo.classList.add('c', 's');
 logo.classList.remove('c', 's');
 logo.classList.toggle('c');
-logo.classList.contains('c'); // not includes as in arrays
+logo.classList.contains('c'); // not included as in arrays
 
 // Don't use -> will overwrite all existing classes and allows only one class.
 logo.className = 'jonas';
@@ -450,7 +450,7 @@ logo.className = 'jonas';
 /*<---------- Lecture: Implementing smooth scrolling ---------->
 // Two ways
 // 1st - Old Schooles.
-
+  LID: 010
 const btnScrollTo = document.querySelector('.btn--scroll-to');
 const section1 = document.querySelector('#section--1');
 
@@ -510,6 +510,7 @@ Theory lecture
 */
 
 /*<---------- Lecture: Event propagation in practice ---------->
+LID: 011
 // rgb(255, 255, 255)
 const randomInt = (min, max) =>
   Math.floor(Math.random() * (max - min + 1) + min);
@@ -612,4 +613,27 @@ LID: 008
 
 /*<---------- Lecture: Building a slider component: Part 2 ---------->
 LID: 009
+*/
+
+/*<---------- Lecture: Lifecycle DOM Events ---------->
+document.addEventListener('DOMContentLoaded', function (e) {
+  console.log('HTML parsed and DOM tree built!', e);
+});
+
+window.addEventListener('load', function (e) {
+  console.log('Page fully loaded', e);
+});
+
+// window.addEventListener('beforeunload', function (e) {
+//   // e.preventDefault();
+//   console.log(e);
+//   return 'Are you sure?';
+// });
+
+*/
+
+/*<---------- Lecture: Efficient script loading: defer and async ---------->
+Theory lecture.
+
+
 */
