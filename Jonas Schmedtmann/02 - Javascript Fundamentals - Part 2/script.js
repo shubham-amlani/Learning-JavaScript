@@ -1,5 +1,5 @@
 //Lecture: Activating strict mode
-'use strict';
+"use strict";
 
 // let hasDriversLicense = false;
 // const passTest = true;
@@ -14,7 +14,7 @@
 //Lecture: Functions
 //A function is a piece of code that can be reused again and again in code
 function logger() {
-    console.log("My name is Shubham");
+  console.log("My name is Shubham");
 }
 
 //calling / running / invoking function.
@@ -51,7 +51,6 @@ function logger() {
 
 // console.log(age1, age2);
 
-
 //Lecture: Arrow function
 // const calcAge3 = birthYear => 2037 - birthYear;
 // const age3 = calcAge3(2005);
@@ -73,7 +72,6 @@ function logger() {
 //     return fruit * 4;
 // }
 
-
 // function fruitProcessor(apples, oranges) {
 //     const applePieces = cutFruitPieces(apples);
 //     const orangePieces = cutFruitPieces(oranges);
@@ -82,7 +80,6 @@ function logger() {
 // }
 
 // console.log(fruitProcessor(1, 3));
-
 
 //Lecture: Reviewing functions
 
@@ -95,18 +92,17 @@ function logger() {
 //     const retirement = 60 - age;
 
 //     if(retirement > 0){
-//         console.log(`${firstName} retires in ${retirement} years`); 
+//         console.log(`${firstName} retires in ${retirement} years`);
 //         return retirement;
 //     } else {
 //         console.log(`${firstName} has already retired`);
 //         return -1;
-//     } 
+//     }
 
 // }
 
 // console.log(yearsUntilRetirement(2005, 'Shubham'));
 // console.log(yearsUntilRetirement(1950, 'Mike'));
-
 
 //Lecture: Introduction to arrays
 // const friends = ['Ankit', 'Jenil', 'Mohammed', 'Karan', 'Krupal', 'Veer'];
@@ -178,7 +174,6 @@ function logger() {
 //     console.log('You have a friend called Krupal');
 // }
 
-
 // //Lecture: Introduction to Objects
 // const shubham = {
 //     firstName: 'Shubham',
@@ -188,7 +183,6 @@ function logger() {
 //     friends: ['Ankit', 'Karan', 'Mohammed', 'Krupal']
 // };
 // console.log(shubham);
-
 
 // //Lecture: Dot vs Bracket notation
 // console.log(shubham.lastName);
@@ -223,9 +217,7 @@ function logger() {
 //Status: completed
 //Remarks: nailed it
 
-
 //Lecture: Object Methods
-
 
 // const shubham = {
 //     firstName: 'Shubham',
@@ -234,7 +226,7 @@ function logger() {
 //     job: 'student',
 //     friends: ['Ankit', 'Karan', 'Mohammed', 'Krupal'],
 //     hasDriversLicense: false,
-    
+
 //     // calcAge: function(birthYear) {
 //     //     return 2037 - birthYear;
 //     // }
@@ -278,10 +270,9 @@ function logger() {
 //     console.log(`Lifting weights repetition ${rep}`);
 // }
 
-
 //Lecture: Looping arrays, Breaking and Continuing
 // const shubham = [
-//     'Shubham', 
+//     'Shubham',
 //     'Amlani',
 //     2037 - 2005,
 //     'student',
@@ -328,10 +319,9 @@ function logger() {
 //     console.log(shubham[i], typeof shubham[i]);
 // }
 
-
 //Lecture: Looping Backwards and Loops in Loops
 // const shubham = [
-//         'Shubham', 
+//         'Shubham',
 //         'Amlani',
 //         2037 - 2005,
 //         'student',
@@ -349,7 +339,6 @@ function logger() {
 //         console.log(`Lifting ${reps} rep of exercise ${exercise}`);
 //     }
 // }
-
 
 //Lecture: The while loop
 // for (let rep=1;rep<=10;rep++) {
@@ -370,6 +359,5 @@ function logger() {
 //     dice = Math.trunc(Math.random() * 6 + 1);
 //     if(dice === 6) console.log('Loops is about to end...');
 // }
-
 
 //Congratulations on completing JavaScript Fundamentals - Part 2

@@ -23,8 +23,6 @@
 // //they should me meaning ful, like it can be seen above;
 // console.log(myFirstJob);
 
-
-
 // //Lecture: Data Types
 // //Javascript have 2 types of data, Object and Primitive, an data is primitive only when it is not an object
 // //Primitive datatypes are of 7 types
@@ -40,7 +38,7 @@
 // //JS has dynamic typing, we do not have to manually define datatype like for eg in C language;
 
 // //Comments: Probably you know what it is already so no need for notes;
-// /* 
+// /*
 // This is
 // a multiline
 // code
@@ -68,8 +66,6 @@
 
 // //typeof operator returns object in case of a null, and that's a bug which was never fixed due to legacy reasons, so that should be kept in mind while working with JavaScript
 
-
-
 // //Lecture: let, const and var
 // //only datatypes of variables declared with let can be changed at runtime
 // let age = 17;
@@ -83,8 +79,6 @@
 // // var variable;//Deprecated and should not be used;
 // // lastName = 'Amlani';
 // // console.log(lastName);
-
-
 
 // //Lecture:Basic Operators
 // //Arithemaric operators;
@@ -108,7 +102,6 @@
 // x--; //x=x-1;
 // console.log(x);
 
-
 // //comparison operators
 // console.log(ageShubham>ageDarshil);
 // console.log(ageDarshil >= 18);
@@ -117,11 +110,9 @@
 
 // console.log(now - 2005 > now - 2018);
 
-
 // //Lecture: Operator Precedence
 
 // //It can be found at https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_precedence
-
 
 // // Lecture: strings and template literals
 // const firstName = 'Shubham';
@@ -143,8 +134,6 @@
 // multiple
 // lines`)
 //no need for \n\ we can directly use backticks `` and write multiple linex directly
-
-
 
 //Lecture: Taking Decisions: If/Else statements
 // const age = 15;
@@ -263,7 +252,6 @@
 //     console.log('Someone else should drive')
 // }
 
-
 //Lecture: The switch Statement
 
 // const day = 'monday';
@@ -312,10 +300,8 @@
 //     console.log('Not a valid day!');
 // }
 
-
 //Lecture: Statements and expressions
 //theory lecture
-
 
 //Lecture: The conditional(ternary) operator
 
@@ -334,7 +320,5 @@
 // console.log(drink2);
 
 // console.log(`I like to drink ${age >=18 ? 'wine' : 'water'}`);
-
-
 
 //Congratulations on completing Javascript Fundamentals - Part 1
